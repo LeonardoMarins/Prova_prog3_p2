@@ -1,6 +1,7 @@
 package com.mycompany.provap2;
 
 import com.mycompany.provap2.backend.Endereco;
+import com.mycompany.provap2.backend.MenuBack;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -32,7 +33,7 @@ public class ControllerListEndereco {
     private TableColumn<Endereco, Integer> cep;
     
     ObservableList<Endereco> list = FXCollections.observableArrayList(
-        new Endereco("teste", 1, "testando", "laaa", "awdawdaw", 1)
+        MenuBack.listaEndereco
     );
 
     @FXML
