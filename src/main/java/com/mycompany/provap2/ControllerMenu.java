@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 public class ControllerMenu {
     
     @FXML
-    public void OpenCadastroEndereco() throws IOException {
+    public void openCadastroEndereco() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CadEndereco.fxml"));
         Parent root = fxmlLoader.load();
         
@@ -35,6 +35,17 @@ public class ControllerMenu {
         
         Stage stage = new Stage();
         stage.setTitle("Lista de Endereco");
+        stage.setScene(new Scene(root));
+        stage.show(); 
+    }
+    
+    @FXML
+    public void openCadastraResponsavel() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CadResponsavel.fxml"));
+        Parent root = fxmlLoader.load();
+        
+        Stage stage = new Stage();
+        stage.setTitle("Cadastra Responsavel");
         stage.setScene(new Scene(root));
         stage.show(); 
     }

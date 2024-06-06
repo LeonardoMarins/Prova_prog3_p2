@@ -5,7 +5,8 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.provap2.ControllerMenu">
    <children>
-      <Button fx:id="cadastraEndereco" layoutX="14.0" layoutY="36.0" mnemonicParsing="false" onAction="#OpenCadastroEndereco" text="CADASTRAR ENDEREÇO" />
+      <Button fx:id="cadastraEndereco" layoutX="14.0" layoutY="36.0" mnemonicParsing="false" onAction="#openCadastroEndereco" text="CADASTRAR ENDEREÇO" />
       <Button fx:id="listEndereco" layoutX="203.0" layoutY="36.0" mnemonicParsing="false" onAction="#openListEndereco" text="LISTAR ENDEREÇOS" />
+      <Button fx:id="cadastraReponsavel" layoutX="14.0" layoutY="92.0" mnemonicParsing="false" onAction="#openCadastraResponsavel" prefHeight="25.0" prefWidth="177.0" text="CADASTRAR RESPONSAVEL" />
    </children>
 </Pane>
