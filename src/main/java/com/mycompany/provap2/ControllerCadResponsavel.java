@@ -13,7 +13,7 @@ import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
 
@@ -36,28 +36,27 @@ public class ControllerCadResponsavel {
     public TextField txtEmail;
     
     @FXML
-    private ChoiceBox<Paciente> rep;
+    private ComboBox<Paciente> txtPaciente;
     
-    private List<Paciente> ListResponsavel = new ArrayList<>();
+    private List<Paciente> ListPaciente = new ArrayList<>();
     
+    private ObservableList<Paciente> obsPaciente;
     
-    private ObservableList<Paciente> obsResponsavel;
-    
-    public void carregarResponsavel() {
-        for(Paciente paciente: MenuBack.listaDePaciente) {
-        
-        ListResponsavel.add(paciente);
-        
-        obsResponsavel = FXCollections.observableArrayList(ListResponsavel);
-        
-        rep.setItems(obsResponsavel);
-       }
+    public void carregarPaciente() {
+        for (Paciente paciente : MenuBack.listaDePaciente) {
+            
+            ListPaciente.add(paciente);
+            
+            obsPaciente = FXCollections.observableArrayList(ListPaciente);
+            
+            txtPaciente.setItems(obsPaciente);
+        }
     }
 
     
     @FXML
     public void initialize() {
-        carregarResponsavel();
+        carregarPaciente();
     }
     
     
@@ -78,9 +77,7 @@ public class ControllerCadResponsavel {
        
             ContatoTelEmail contato = new ContatoTelEmail(telefoneL, celularL, email);
             
-            String teste = rep.toString();
-            
-            Paciente pacienteSelecionado = MenuBack.listaDePaciente.get(Integer.parseInt(teste));
+            var pacienteSelecionado = txtPaciente.getValue();
         
             Responsavel responsavel = new Responsavel(nome, contato, pacienteSelecionado);
 

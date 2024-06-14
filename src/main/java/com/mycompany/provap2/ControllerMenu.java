@@ -50,4 +50,15 @@ public class ControllerMenu {
         stage.show(); 
     }
     
+    @FXML
+    public void openListResponsavel() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ListResponsavel.fxml"));
+        Parent root = fxmlLoader.load();
+        
+        Stage stage = new Stage();
+        stage.setTitle("Lista Responsavel");
+        stage.setScene(new Scene(root));
+        stage.show(); 
+    }
+    
 }
