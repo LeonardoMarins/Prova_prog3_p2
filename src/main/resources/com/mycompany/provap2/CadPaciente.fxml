@@ -7,31 +7,30 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="526.0" prefWidth="419.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="526.0" prefWidth="419.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.provap2.ControllerCadPaciente">
    <children>
       <Label layoutX="152.0" layoutY="14.0" text="CADASTRO PACIENTE" />
       <Label layoutX="14.0" layoutY="54.0" text="NOME COMPLETO:" />
-      <TextField layoutX="123.0" layoutY="50.0" prefHeight="25.0" prefWidth="273.0" />
+      <TextField fx:id="txtNome" layoutX="123.0" layoutY="50.0" prefHeight="25.0" prefWidth="273.0" />
       <Label layoutX="14.0" layoutY="84.0" text="DATA NASCIMENTO:" />
-      <TextField layoutX="138.0" layoutY="80.0" prefHeight="25.0" prefWidth="258.0" />
+      <TextField fx:id="txtDataDeNascimento" layoutX="138.0" layoutY="80.0" prefHeight="25.0" prefWidth="258.0" />
       <Label layoutX="14.0" layoutY="115.0" text="ENDEREÇO:" />
-      <ComboBox layoutX="88.0" layoutY="111.0" prefHeight="25.0" prefWidth="306.0" />
+      <ComboBox fx:id="txtEndereco" layoutX="88.0" layoutY="111.0" prefHeight="25.0" prefWidth="306.0" />
       <Label layoutX="14.0" layoutY="152.0" text="GENERO:" />
-      <ComboBox layoutX="68.0" layoutY="148.0" prefHeight="25.0" prefWidth="326.0" />
+      <ComboBox fx:id="txtGenero" layoutX="68.0" layoutY="148.0" prefHeight="25.0" prefWidth="326.0" />
       <Label layoutX="14.0" layoutY="183.0" text="IDADE:" />
-      <TextField layoutX="64.0" layoutY="179.0" prefHeight="25.0" prefWidth="332.0" />
+      <TextField fx:id="txtIdade" layoutX="64.0" layoutY="179.0" prefHeight="25.0" prefWidth="332.0" />
       <Label layoutX="14.0" layoutY="213.0" text="DATA DE CADASTRO:" />
-      <TextField layoutX="138.0" layoutY="209.0" prefHeight="25.0" prefWidth="258.0" />
+      <TextField fx:id="txtDataDeCadastro" layoutX="138.0" layoutY="209.0" prefHeight="25.0" prefWidth="258.0" />
       <Label layoutX="13.0" layoutY="276.0" text="OBS GERAL:" />
-      <TextArea layoutX="88.0" layoutY="242.0" prefHeight="85.0" prefWidth="306.0" />
+      <TextArea fx:id="txtObsGeral" layoutX="88.0" layoutY="242.0" prefHeight="85.0" prefWidth="306.0" />
       <Label layoutX="16.0" layoutY="344.0" text="TELEFONE:" />
-      <TextField layoutX="88.0" layoutY="340.0" prefHeight="25.0" prefWidth="306.0" />
+      <TextField fx:id="txtTelefone" layoutX="88.0" layoutY="340.0" prefHeight="25.0" prefWidth="306.0" />
       <Label layoutX="18.0" layoutY="379.0" text="CELULAR:" />
-      <TextField layoutX="88.0" layoutY="375.0" prefHeight="25.0" prefWidth="306.0" />
+      <TextField fx:id="txtCelular" layoutX="88.0" layoutY="375.0" prefHeight="25.0" prefWidth="306.0" />
       <Label layoutX="18.0" layoutY="409.0" text="EMAIL:" />
-      <TextField layoutX="88.0" layoutY="405.0" prefHeight="25.0" prefWidth="306.0" />
-      <Button layoutX="285.0" layoutY="452.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="111.0" text="SALVAR" />
+      <TextField fx:id="txtEmail" layoutX="88.0" layoutY="405.0" prefHeight="25.0" prefWidth="306.0" />
+      <Button fx:id="salvarPaciente" layoutX="285.0" layoutY="452.0" mnemonicParsing="false" onAction="#savePaciente" prefHeight="49.0" prefWidth="111.0" text="SALVAR" />
       <Button layoutX="17.0" layoutY="452.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="111.0" text="LIMPAR" />
    </children>
 </Pane>
