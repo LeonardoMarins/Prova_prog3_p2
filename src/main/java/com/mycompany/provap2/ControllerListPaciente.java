@@ -7,12 +7,15 @@ package com.mycompany.provap2;
 import com.mycompany.provap2.backend.MenuBack;
 import com.mycompany.provap2.backend.Paciente;
 import java.util.UUID;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.Callback;
 
 /**
  *
@@ -48,6 +51,9 @@ public class ControllerListPaciente {
     private TableColumn<Paciente, String> idade;
     
     @FXML
+    private TableColumn<Paciente, String> responsavel;
+    
+    @FXML
     private TableColumn<Paciente, String> obsGeral;
     
     ObservableList<Paciente> list = FXCollections.observableArrayList(
@@ -60,11 +66,31 @@ public class ControllerListPaciente {
         nome.setCellValueFactory(new PropertyValueFactory<>("nomePessoal"));
         dataDeCadastro.setCellValueFactory(new PropertyValueFactory<>("dataCadastro"));
         dataDeNascimento.setCellValueFactory(new PropertyValueFactory<>("dataNascimento"));
-        endereco.setCellValueFactory(new PropertyValueFactory<>("endereco"));
         genero.setCellValueFactory(new PropertyValueFactory<>("genero"));
-        contato.setCellValueFactory(new PropertyValueFactory<>("contato"));
         idade.setCellValueFactory(new PropertyValueFactory<>("idade"));
         obsGeral.setCellValueFactory(new PropertyValueFactory<>("obsGeral"));
+        responsavel.setCellValueFactory(new PropertyValueFactory<>("responsavel"));
+        
+        // Customizando o valor da célula para endereço
+    endereco.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Paciente, String>, ObservableValue<String>>() {
+        public ObservableValue<String> call(TableColumn.CellDataFeatures<Paciente, String> p) {
+            return new SimpleStringProperty(p.getValue().getEndereco().getRua());
+        }
+    });
+
+    // Customizando o valor da célula para contato
+    contato.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Paciente, String>, ObservableValue<String>>() {
+        public ObservableValue<String> call(TableColumn.CellDataFeatures<Paciente, String> p) {
+            return new SimpleStringProperty(p.getValue().getContato().getEmail());
+        }
+    });
+    
+    // Customizando o valor da célula para contato
+    responsavel.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Paciente, String>, ObservableValue<String>>() {
+        public ObservableValue<String> call(TableColumn.CellDataFeatures<Paciente, String> p) {
+            return new SimpleStringProperty(p.getValue().getResponsavel());
+        }
+    });
 
         tableView.setItems(list);
     }

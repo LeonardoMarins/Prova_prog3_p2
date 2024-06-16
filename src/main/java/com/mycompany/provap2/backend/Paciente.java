@@ -19,7 +19,8 @@ public class Paciente extends DadoPessoal {
     private int idade;
     private String dataCadastro; 
     private String obsGeral = "";
-    private List<Responsavel> contatoResponsavel = new ArrayList<>();
+    private Responsavel responsavel;
+    private List<Responsavel> Contatoresponsavel = new ArrayList<>();
     private List<ConsultaMedica> historicoConsultaMedica = new ArrayList();
     
     
@@ -28,7 +29,8 @@ public class Paciente extends DadoPessoal {
         this.idade = idade;
         this.dataCadastro = dataCadastro;
         this.obsGeral = obsGeral;
-        this.contatoResponsavel.add(responsavel);
+        this.Contatoresponsavel.add(responsavel);
+        this.responsavel = responsavel;
         this.idPaciente = UUID.randomUUID();
     }
 
@@ -92,4 +94,7 @@ public class Paciente extends DadoPessoal {
         this.contato = contato;
     }
     
+    public String getResponsavel() {
+        return responsavel.getNomeResponsavel();
+    }
 }

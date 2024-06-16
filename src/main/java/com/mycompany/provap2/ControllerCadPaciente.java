@@ -163,10 +163,14 @@ public class ControllerCadPaciente {
            Genero generoSelecionado = txtGenero.getValue();
            
            Genero opGenero = null;
-            
-           if ("Masculino".equals(generoSelecionado)) {
+                      
+           if(generoSelecionado == null) {
+               opGenero = Genero.F;
+           }
+                    
+           if (Genero.M.equals(generoSelecionado)) {
                opGenero = Genero.M;
-           } else if ("Feminino".equals(generoSelecionado)) {
+           } else if (Genero.F.equals(generoSelecionado)) {
                opGenero = Genero.F;
            }
            

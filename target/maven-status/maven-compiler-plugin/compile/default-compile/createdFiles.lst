@@ -1,5 +1,7 @@
 com\mycompany\provap2\ControllerCadEndereco.class
 com\mycompany\provap2\ControllerCadPaciente.class
+com\mycompany\provap2\ControllerListPaciente$2.class
+com\mycompany\provap2\ControllerListPaciente$1.class
 com\mycompany\provap2\backend\DadoPessoal.class
 module-info.class
 com\mycompany\provap2\backend\ConsultaMedica.class
@@ -8,6 +10,7 @@ com\mycompany\provap2\ControllerMenu.class
 com\mycompany\provap2\App.class
 com\mycompany\provap2\backend\AtendenteHospitalar.class
 com\mycompany\provap2\backend\Medico.class
+com\mycompany\provap2\ControllerListPaciente$3.class
 com\mycompany\provap2\ControllerListEndereco.class
 com\mycompany\provap2\ControllerCadMedico.class
 com\mycompany\provap2\ControllerCadPaciente$2.class
