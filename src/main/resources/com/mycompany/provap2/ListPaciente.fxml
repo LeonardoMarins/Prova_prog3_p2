@@ -15,7 +15,7 @@
       <TableColumn fx:id="obsGeral" prefWidth="73.5999755859375" text="OBSGERAL" />
       <TableColumn fx:id="contato" prefWidth="78.40008544921875" text="CONTATO" />
       <TableColumn fx:id="responsavel" prefWidth="88.800048828125" text="RESPONSAVEL" />
-      <TableColumn prefWidth="61.5999755859375" text="DELETAR" />
-      <TableColumn prefWidth="71.9998779296875" text="EDITAR" />
+      <TableColumn fx:id="editar" prefWidth="71.9998779296875" text="EDITAR" />
+      <TableColumn fx:id="deletar" prefWidth="61.5999755859375" text="DELETAR" />
   </columns>
 </TableView>

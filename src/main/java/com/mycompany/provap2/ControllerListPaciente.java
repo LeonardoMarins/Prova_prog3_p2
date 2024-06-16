@@ -11,7 +11,10 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -56,6 +59,12 @@ public class ControllerListPaciente {
     @FXML
     private TableColumn<Paciente, String> obsGeral;
     
+    @FXML
+    private TableColumn<Paciente, Void> editar;
+    
+    @FXML
+    private TableColumn<Paciente, Void> deletar;
+    
     ObservableList<Paciente> list = FXCollections.observableArrayList(
         MenuBack.listaDePaciente
     );
@@ -91,7 +100,81 @@ public class ControllerListPaciente {
             return new SimpleStringProperty(p.getValue().getResponsavel());
         }
     });
+    
+        addButtonEditToTable();
+        
+         addButtonDeleteToTable();
 
         tableView.setItems(list);
     }
+    
+    
+private void addButtonEditToTable() {
+    Callback<TableColumn<Paciente, Void>, TableCell<Paciente, Void>> cellFactory = new Callback<TableColumn<Paciente, Void>, TableCell<Paciente, Void>>() {
+        @Override
+        public TableCell<Paciente, Void> call(final TableColumn<Paciente, Void> param) {
+            final TableCell<Paciente, Void> cell = new TableCell<Paciente, Void>() {
+
+                private final Button btn = new Button("Editar");
+
+                {
+                    btn.setOnAction((ActionEvent event) -> {
+                        Paciente data = getTableView().getItems().get(getIndex());
+                        // Aqui você pode abrir uma nova janela ou realizar a ação de edição
+                        System.out.println("Editar: " + data.getNomePessoal());
+                    });
+                }
+
+                @Override
+                public void updateItem(Void item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if (empty) {
+                        setGraphic(null);
+                    } else {
+                        setGraphic(btn);
+                    }
+                }
+            };
+            return cell;
+        }
+    };
+
+    editar.setCellFactory(cellFactory);
 }
+
+private void addButtonDeleteToTable() {
+    Callback<TableColumn<Paciente, Void>, TableCell<Paciente, Void>> cellFactory = new Callback<TableColumn<Paciente, Void>, TableCell<Paciente, Void>>() {
+        @Override
+        public TableCell<Paciente, Void> call(final TableColumn<Paciente, Void> param) {
+            final TableCell<Paciente, Void> cell = new TableCell<Paciente, Void>() {
+
+                private final Button btn = new Button("Deletar");
+
+                {
+                    btn.setOnAction((ActionEvent event) -> {
+                        Paciente data = getTableView().getItems().get(getIndex());
+                        // Aqui você pode abrir uma nova janela ou realizar a ação de edição
+                        System.out.println("Deletar: " + data.getNomePessoal());
+                    });
+                }
+
+                @Override
+                public void updateItem(Void item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if (empty) {
+                        setGraphic(null);
+                    } else {
+                        setGraphic(btn);
+                    }
+                }
+            };
+            return cell;
+        }
+    };
+
+    deletar.setCellFactory(cellFactory);
+}
+    
+}
+
+
