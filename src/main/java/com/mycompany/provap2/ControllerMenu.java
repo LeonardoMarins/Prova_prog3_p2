@@ -72,4 +72,27 @@ public class ControllerMenu {
         stage.show(); 
     }
     
+    @FXML
+    public void openListPaciente() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ListPaciente.fxml"));
+        Parent root = fxmlLoader.load();
+        
+        Stage stage = new Stage();
+        stage.setTitle("Lista Paciente");
+        stage.setScene(new Scene(root));
+        stage.show(); 
+    }
+    
+    @FXML
+    public void openCadastraMedico() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CadMedico.fxml"));
+        Parent root = fxmlLoader.load();
+        
+        Stage stage = new Stage();
+        stage.setTitle("Cadastra Medico");
+        stage.setScene(new Scene(root));
+        stage.show(); 
+    }
+    
+    
 }

@@ -6,7 +6,8 @@ package com.mycompany.provap2.backend;
 
 import com.mycompany.provap2.backend.DadoPessoal;
 import com.mycompany.provap2.backend.ConsultaMedica;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -18,15 +19,16 @@ public class Paciente extends DadoPessoal {
     private int idade;
     private String dataCadastro; 
     private String obsGeral = "";
-    private ConsultaMedica historicoConsultaMedica;
-    private Responsavel contatoResponsavel;
+    private List<Responsavel> contatoResponsavel = new ArrayList<>();
+    private List<ConsultaMedica> historicoConsultaMedica = new ArrayList();
     
     
-    public Paciente(DadoPessoal pessoal, int idade, String dataCadastro, String obsGeral) {
+    public Paciente(DadoPessoal pessoal, int idade, String dataCadastro, String obsGeral, Responsavel responsavel) {
         super(pessoal.nomePessoal,pessoal.dataNascimento,pessoal.endereco,pessoal.contato,pessoal.genero);
         this.idade = idade;
         this.dataCadastro = dataCadastro;
         this.obsGeral = obsGeral;
+        this.contatoResponsavel.add(responsavel);
         this.idPaciente = UUID.randomUUID();
     }
 
@@ -85,36 +87,7 @@ public class Paciente extends DadoPessoal {
     public void setObsGeral(String obsGeral) {
         this.obsGeral = obsGeral;
     }
-
-    /**
-     * @return the historicoConsultaMedica
-     */
-    public ConsultaMedica getHistoricoConsultaMedica() {
-        return historicoConsultaMedica;
-    }
-
-    /**
-     * @param historicoConsultaMedica the historicoConsultaMedica to set
-     */
-    public void setHistoricoConsultaMedica(ConsultaMedica historicoConsultaMedica) {
-        this.historicoConsultaMedica = historicoConsultaMedica;
-    }
-
-    /**
-     * @return the contatoResponsavel
-     */
-    public Responsavel getContatoResponsavel() {
-        return contatoResponsavel;
-    }
-
-    /**
-     * @param contatoResponsavel the contatoResponsavel to set
-     */
-    public void setContatoResponsavel(Responsavel contatoResponsavel) {
-        this.contatoResponsavel = contatoResponsavel;
-    }
-
-
+    
     public void setContatoTelEmail(ContatoTelEmail contato) {
         this.contato = contato;
     }

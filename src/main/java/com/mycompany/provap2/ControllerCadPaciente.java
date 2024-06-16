@@ -38,6 +38,18 @@ public class ControllerCadPaciente {
     public TextField txtNome;
     
     @FXML
+    public TextField txtNomeResponsavel;
+    
+    @FXML
+    public TextField txtTelefoneResponsavel;
+    
+    @FXML
+    public TextField txtCelularResponsavel;
+    
+    @FXML
+    public TextField txtEmailDoResponsavel;
+
+    @FXML
     public TextField txtDataDeNascimento;
     
     @FXML
@@ -73,6 +85,7 @@ public class ControllerCadPaciente {
     
     private ObservableList<Genero> obsGenero;
     
+    
     public void carregarPaciente() {
         // Adiciona todos os endereços à lista
         listEndereco.addAll(MenuBack.listaEndereco);
@@ -84,11 +97,13 @@ public class ControllerCadPaciente {
         obsEndereco = FXCollections.observableArrayList(listEndereco);
         
         obsGenero = FXCollections.observableArrayList(listGenero);
+        
 
         // Configura os itens do ComboBox
         txtEndereco.setItems(obsEndereco);
         
         txtGenero.setItems(obsGenero);
+        
 
         // Definindo o conversor para exibir o nome da rua do endereço
         txtEndereco.setConverter(new StringConverter<Endereco>() {
@@ -116,6 +131,7 @@ public class ControllerCadPaciente {
                 return null;
             }
         });
+        
         
         txtDataDeCadastro.setText(dataCadastro);       
     }
@@ -153,20 +169,33 @@ public class ControllerCadPaciente {
            } else if ("Feminino".equals(generoSelecionado)) {
                opGenero = Genero.F;
            }
+           
+
+                   
+           String telefoneResponsavel = txtTelefoneResponsavel.getText();
+           long telefoneLResponsavel = Long.parseLong(telefoneResponsavel);
+           String celularResponsavel = txtCelularResponsavel.getText();
+           long celularLResponsavel = Long.parseLong(celularResponsavel);
+           String emailResponsavel = txtEmailDoResponsavel.getText();
+           String nomeResponsavel = txtNomeResponsavel.getText();
             
             String idade = txtIdade.getText();
             int idadeI = Integer.parseInt(idade);
             String obsGeral = txtObsGeral.getText();
        
-            ContatoTelEmail contato = new ContatoTelEmail(telefoneL, celularL, email);
+            ContatoTelEmail contatoPaciente = new ContatoTelEmail(telefoneL, celularL, email);
+            
+             ContatoTelEmail contatoResponsavel = new ContatoTelEmail(telefoneLResponsavel, celularLResponsavel, emailResponsavel);
+            
+            Responsavel responsavel = new Responsavel(nomeResponsavel, contatoResponsavel);
             
             var enderecoSelecionado = txtEndereco.getValue();
             
             DadoPessoal dado = new DadoPessoal(nome,dataNascimentoD,enderecoSelecionado,
-            contato, opGenero);
+            contatoPaciente, opGenero);
         
             Paciente paciente = new Paciente(dado, idadeI,
-                    dataCadastro, obsGeral);
+                    dataCadastro, obsGeral, responsavel);
 
             MenuBack.adicionarPaciente(paciente);
             JOptionPane.showMessageDialog(null, "Registro salvo com sucesso");
