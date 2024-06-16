@@ -165,14 +165,18 @@ public class ControllerCadMedico {
        ContatoTelEmail contato = new ContatoTelEmail(telefoneL, celularL, email);
             
        Genero generoSelecionado = txtGenero.getValue();
-
-       Genero opGenero = null;
-            
-       if ("Masculino".equals(generoSelecionado)) {
-            opGenero = Genero.M;
-       } else if ("Feminino".equals(generoSelecionado)) {
-            opGenero = Genero.F;
-       }
+           
+           Genero opGenero = null;
+                      
+           if(generoSelecionado == null) {
+               opGenero = Genero.F;
+           }
+                    
+           if (Genero.M.equals(generoSelecionado)) {
+               opGenero = Genero.M;
+           } else if (Genero.F.equals(generoSelecionado)) {
+               opGenero = Genero.F;
+           }
        
        boolean eCirurgiao = sim.isSelected();
        boolean naoECirurgiao = nao.isSelected();

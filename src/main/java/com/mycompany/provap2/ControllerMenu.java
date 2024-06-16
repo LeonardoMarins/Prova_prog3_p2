@@ -94,5 +94,16 @@ public class ControllerMenu {
         stage.show(); 
     }
     
+    @FXML
+    public void openListMedico() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ListMedico.fxml"));
+        Parent root = fxmlLoader.load();
+        
+        Stage stage = new Stage();
+        stage.setTitle("Lista medico");
+        stage.setScene(new Scene(root));
+        stage.show(); 
+    }
+    
     
 }

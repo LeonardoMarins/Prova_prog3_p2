@@ -1,62 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="879.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21">
-  <tabs>
-    <Tab text="ID" />
-    <Tab text="NOME" />
-      <Tab text="DATA DE NASCIMENTO">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-        </content>
-      </Tab>
-      <Tab text="ENDEREÇO">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-        </content>
-      </Tab>
-      <Tab text="GENERO">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-        </content>
-      </Tab>
-      <Tab text="NÚMERO CRM">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-        </content>
-      </Tab>
-      <Tab text="ÁREA ESPECIFICA">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-        </content>
-      </Tab>
-      <Tab text="CIRURGIÃO">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-        </content>
-      </Tab>
-      <Tab text="SETOR">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-        </content>
-      </Tab>
-      <Tab text="CHSEMANAL">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-        </content>
-      </Tab>
-      <Tab text="EDITAR">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-        </content>
-      </Tab>
-      <Tab text="DELETAR">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-        </content>
-      </Tab>
-  </tabs>
-</TabPane>
+<TableView fx:id="tableView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="564.0" prefWidth="1268.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.provap2.ControllerListMedico">
+  <columns>
+    <TableColumn fx:id="id" prefWidth="41.59997636079788" text="ID" />
+    <TableColumn fx:id="numeroCrm" prefWidth="96.79998397827148" text="NUMERO CRM" />
+      <TableColumn fx:id="areaEsp" prefWidth="62.4000244140625" text="ARÉA ESP" />
+      <TableColumn fx:id="cirurgiao" prefWidth="75.99995422363281" text="CIRURGIÃO" />
+      <TableColumn fx:id="setor" prefWidth="59.20001220703125" text="SETOR" />
+      <TableColumn fx:id="chSemanal" prefWidth="86.39996337890625" text="CHSEMANAL" />
+      <TableColumn fx:id="nome" prefWidth="56.79998779296875" text="NOME" />
+      <TableColumn fx:id="dataDeNascimento" prefWidth="145.60003662109375" text="DATA DE NASCIMENTO" />
+      <TableColumn fx:id="endereco" prefWidth="79.199951171875" text="ENDEREÇO" />
+      <TableColumn fx:id="genero" prefWidth="63.9998779296875" text="GENERO" />
+      <TableColumn fx:id="contato" prefWidth="82.4000244140625" text="CONTATO" />
+      <TableColumn fx:id="editar" prefWidth="75.0" text="EDITAR" />
+      <TableColumn fx:id="deletar" prefWidth="75.0" text="DELETAR" />
+  </columns>
+</TableView>

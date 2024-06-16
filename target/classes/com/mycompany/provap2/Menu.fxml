@@ -12,6 +12,6 @@
       <Button fx:id="cadastraPaciente" layoutX="14.0" layoutY="111.0" mnemonicParsing="false" onAction="#openCadastraPaciente" prefHeight="25.0" prefWidth="166.0" text="CADASTRAR PACIENTE" />
       <Button layoutX="203.0" layoutY="111.0" mnemonicParsing="false" onAction="#openListPaciente" prefHeight="25.0" prefWidth="137.0" text="LISTAR PACIENTES" />
       <Button layoutX="14.0" layoutY="158.0" mnemonicParsing="false" onAction="#openCadastraMedico" prefHeight="25.0" prefWidth="166.0" text="CADASTRAR MEDICO" />
-      <Button layoutX="203.0" layoutY="158.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="137.0" text="LISTAR MEDICO" />
+      <Button layoutX="203.0" layoutY="158.0" mnemonicParsing="false" onAction="#openListMedico" prefHeight="25.0" prefWidth="137.0" text="LISTAR MEDICO" />
    </children>
 </Pane>
