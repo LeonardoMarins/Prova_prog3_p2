@@ -13,11 +13,17 @@ import com.mycompany.provap2.backend.Medico;
 import com.mycompany.provap2.backend.MenuBack;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.util.StringConverter;
 import javax.swing.JOptionPane;
 
 /**
@@ -36,7 +42,7 @@ public class ControllerCadMedico {
     public TextField txtSetor;
     
     @FXML
-    public TextField txtChSemanl;
+    public TextField txtChSemanal;
     
     @FXML
     public TextField txtNome;
@@ -54,10 +60,78 @@ public class ControllerCadMedico {
     public TextField txtTelefone;
     
     @FXML
+    public CheckBox sim;
+    
+    @FXML
+    public CheckBox nao;
+    
+    @FXML
     public TextField txtCelular;
     
     @FXML
     public TextField txtEmail;
+    
+     private List<Endereco> listEndereco = new ArrayList<>();
+    
+    private ObservableList<Endereco> obsEndereco;
+    
+    private List<Genero> listGenero = new ArrayList<>();
+    
+    private ObservableList<Genero> obsGenero;
+    
+    
+    public void carregarPaciente() {
+        // Adiciona todos os endereços à lista
+        listEndereco.addAll(MenuBack.listaEndereco);
+        
+        listGenero.add(Genero.M);
+        listGenero.add(Genero.F);
+
+        // Cria a ObservableList uma vez, após adicionar todos os endereços
+        obsEndereco = FXCollections.observableArrayList(listEndereco);
+        
+        obsGenero = FXCollections.observableArrayList(listGenero);
+        
+
+        // Configura os itens do ComboBox
+        txtEndereco.setItems(obsEndereco);
+        
+        txtGenero.setItems(obsGenero);
+        
+
+        // Definindo o conversor para exibir o nome da rua do endereço
+        txtEndereco.setConverter(new StringConverter<Endereco>() {
+            @Override
+            public String toString(Endereco endereco) {
+                return endereco != null ? endereco.getRua() : "";
+            }
+
+            @Override
+            public Endereco fromString(String string) {
+                return null;
+            }
+        });
+        
+        
+        // Definindo o conversor para exibir o nome do Genero
+        txtGenero.setConverter(new StringConverter<Genero>() {
+            @Override
+            public String toString(Genero genero) {
+                return genero == Genero.M ? "Masculino" : "Feminino";
+            }
+
+            @Override
+            public Genero fromString(String string) {
+                return null;
+            }
+        });    
+    }
+
+    
+    @FXML
+    public void initialize() {
+        carregarPaciente();
+    }
    
     
     
@@ -72,7 +146,7 @@ public class ControllerCadMedico {
        
        
        String setor = txtSetor.getText();
-       String chsemanal = txtChSemanl.getText();
+       String chsemanal = txtChSemanal.getText();
        
        String nome = txtNome.getText();
        
@@ -100,12 +174,8 @@ public class ControllerCadMedico {
             opGenero = Genero.F;
        }
        
-       boolean cirurgiaoSelecionado = true;
-       boolean outroRadioButtonSelecionado = false;
-       
-       boolean selectedRadio1;
-       boolean selectedRadio2;
-       
+       boolean eCirurgiao = sim.isSelected();
+       boolean naoECirurgiao = nao.isSelected();
        
        int chSemanalI = Integer.parseInt(chsemanal);
        
@@ -113,18 +183,16 @@ public class ControllerCadMedico {
        
        AtendenteHospitalar atendimento = new AtendenteHospitalar(setor, chSemanalI,dado);
        
-       if (cirurgiaoSelecionado) {
-            selectedRadio1 = true;
+       if (eCirurgiao) {
             
-             Medico medico = new Medico(dado,numeroCRMI,areaEspecialidade,selectedRadio1,atendimento);
+             Medico medico = new Medico(dado,numeroCRMI,areaEspecialidade,eCirurgiao,atendimento);
              MenuBack.adicionarMedico(medico);
              JOptionPane.showMessageDialog(null, "Registro salvo com sucesso");
              
              System.out.println(medico.getIdMedico());
-        } else if (outroRadioButtonSelecionado) {
-            selectedRadio2 = true;
+        } else if (naoECirurgiao) {
             
-            Medico medico = new Medico(dado, numeroCRMI,areaEspecialidade,selectedRadio2,atendimento);
+            Medico medico = new Medico(dado, numeroCRMI,areaEspecialidade,naoECirurgiao,atendimento);
             MenuBack.adicionarMedico(medico);
             JOptionPane.showMessageDialog(null, "Registro salvo com sucesso");
 

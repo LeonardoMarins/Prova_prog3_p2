@@ -16,15 +16,15 @@
       <Label layoutX="14.0" layoutY="111.0" text="ARÉA ESP:" />
       <TextArea fx:id="txtAreaEspecifica" layoutX="96.0" layoutY="82.0" prefHeight="74.0" prefWidth="261.0" />
       <Label layoutX="14.0" layoutY="167.0" text="CIRURGIÃO:" />
-      <CheckBox layoutX="96.0" layoutY="167.0" mnemonicParsing="false" text="SIM" />
-      <CheckBox layoutX="157.0" layoutY="167.0" mnemonicParsing="false" text="NÃO" />
+      <CheckBox fx:id="sim" layoutX="96.0" layoutY="167.0" mnemonicParsing="false" text="SIM" />
+      <CheckBox fx:id="nao" layoutX="157.0" layoutY="167.0" mnemonicParsing="false" text="NÃO" />
       <Label layoutX="14.0" layoutY="200.0" text="SETOR:" />
       <TextField fx:id="txtSetor" layoutX="64.0" layoutY="196.0" prefHeight="25.0" prefWidth="293.0" />
       <Label layoutX="14.0" layoutY="232.0" text="CHSEMANAL:" />
       <TextField fx:id="txtChSemanal" layoutX="96.0" layoutY="228.0" prefHeight="25.0" prefWidth="261.0" />
       <Label layoutX="14.0" layoutY="265.0" text="NOME:" />
       <TextField fx:id="txtNome" layoutX="64.0" layoutY="261.0" prefHeight="25.0" prefWidth="293.0" />
-      <Label layoutX="14.0" layoutY="296.0" text="DATA DE DANSCIMENTO:" />
+      <Label layoutX="14.0" layoutY="296.0" text="DATA DE NASCIMENTO:" />
       <TextField fx:id="txtDataDeNascimento" layoutX="159.0" layoutY="292.0" prefHeight="25.0" prefWidth="198.0" />
       <Label layoutX="14.0" layoutY="330.0" text="ENDEREÇO:" />
       <Label layoutX="14.0" layoutY="366.0" text="GENERO:" />

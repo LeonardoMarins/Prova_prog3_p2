@@ -103,7 +103,7 @@ public class ControllerListPaciente {
     
         addButtonEditToTable();
         
-         addButtonDeleteToTable();
+        addButtonDeleteToTable();
 
         tableView.setItems(list);
     }
