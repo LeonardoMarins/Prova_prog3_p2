@@ -4,6 +4,7 @@
  */
 package com.mycompany.provap2;
 
+import com.mycompany.provap2.backend.Enfermeiro;
 import com.mycompany.provap2.backend.Medico;
 import com.mycompany.provap2.backend.MenuBack;
 import java.util.UUID;
@@ -24,78 +25,70 @@ import javafx.util.Callback;
  *
  * @author marin
  */
-public class ControllerListMedico {
+public class ControllerListEnfermeiro {
     
-    @FXML
-    private TableView<Medico> tableView;
+     @FXML
+    private TableView<Enfermeiro> tableView;
      
     @FXML
-    private TableColumn<Medico, UUID> id;
+    private TableColumn<Enfermeiro, UUID> id;
     
     @FXML
-    private TableColumn<Medico, String> numeroCrm;
+    private TableColumn<Enfermeiro, String> oprx;
     
     @FXML
-    private TableColumn<Medico, String> areaEsp;
+    private TableColumn<Enfermeiro, String> setor;
     
     @FXML
-    private TableColumn<Medico, String> cirurgiao;
+    private TableColumn<Enfermeiro, String> chSemanal;
     
     @FXML
-    private TableColumn<Medico, String> setor;
+    private TableColumn<Enfermeiro, String> nome;
     
     @FXML
-    private TableColumn<Medico, String> chSemanal;
+    private TableColumn<Enfermeiro, String> dataDeNascimento;
     
     @FXML
-    private TableColumn<Medico, String> nome;
+    private TableColumn<Enfermeiro, String> endereco;
     
     @FXML
-    private TableColumn<Medico, String> dataDeNascimento;
+    private TableColumn<Enfermeiro, String> genero;
     
     @FXML
-    private TableColumn<Medico, String> endereco;
+    private TableColumn<Enfermeiro, String> contato;
     
     @FXML
-    private TableColumn<Medico, String> genero;
+    private TableColumn<Enfermeiro, Void> editar;
     
     @FXML
-    private TableColumn<Medico, String> contato;
-    
-    @FXML
-    private TableColumn<Medico, Void> editar;
-    
-    @FXML
-    private TableColumn<Medico, Void> deletar;
+    private TableColumn<Enfermeiro, Void> deletar;
     
     
     
-    ObservableList<Medico> list = FXCollections.observableArrayList(
-        MenuBack.listaDeMedicos
+    ObservableList<Enfermeiro> list = FXCollections.observableArrayList(
+        MenuBack.listaDeEnfermeiros
     );
 
     @FXML
     public void initialize() {
-        id.setCellValueFactory(new PropertyValueFactory<>("idMedico"));
-        numeroCrm.setCellValueFactory(new PropertyValueFactory<>("numeroCRM"));
-        areaEsp.setCellValueFactory(new PropertyValueFactory<>("areasEspecialidade"));
+        id.setCellValueFactory(new PropertyValueFactory<>("idEnfermeiro"));
         dataDeNascimento.setCellValueFactory(new PropertyValueFactory<>("dataNascimento"));
         genero.setCellValueFactory(new PropertyValueFactory<>("genero"));
-        cirurgiao.setCellValueFactory(new PropertyValueFactory<>("cirurgiao"));
+        oprx.setCellValueFactory(new PropertyValueFactory<>("treinadoOpRX"));
         setor.setCellValueFactory(new PropertyValueFactory<>("setor"));
         chSemanal.setCellValueFactory(new PropertyValueFactory<>("chSemanal"));
         nome.setCellValueFactory(new PropertyValueFactory<>("nomePessoal"));
         
         // Customizando o valor da célula para endereço
-    endereco.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Medico, String>, ObservableValue<String>>() {
-        public ObservableValue<String> call(TableColumn.CellDataFeatures<Medico, String> p) {
+    endereco.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Enfermeiro, String>, ObservableValue<String>>() {
+        public ObservableValue<String> call(TableColumn.CellDataFeatures<Enfermeiro, String> p) {
             return new SimpleStringProperty(p.getValue().getEndereco().getRua());
         }
     });
 
     // Customizando o valor da célula para contato
-    contato.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Medico, String>, ObservableValue<String>>() {
-        public ObservableValue<String> call(TableColumn.CellDataFeatures<Medico, String> p) {
+    contato.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Enfermeiro, String>, ObservableValue<String>>() {
+        public ObservableValue<String> call(TableColumn.CellDataFeatures<Enfermeiro, String> p) {
             return new SimpleStringProperty(p.getValue().getContato().getEmail());
         }
     });
@@ -110,16 +103,16 @@ public class ControllerListMedico {
     
     
 private void addButtonEditToTable() {
-    Callback<TableColumn<Medico, Void>, TableCell<Medico, Void>> cellFactory = new Callback<TableColumn<Medico, Void>, TableCell<Medico, Void>>() {
+    Callback<TableColumn<Enfermeiro, Void>, TableCell<Enfermeiro, Void>> cellFactory = new Callback<TableColumn<Enfermeiro, Void>, TableCell<Enfermeiro, Void>>() {
         @Override
-        public TableCell<Medico, Void> call(final TableColumn<Medico, Void> param) {
-            final TableCell<Medico, Void> cell = new TableCell<Medico, Void>() {
+        public TableCell<Enfermeiro, Void> call(final TableColumn<Enfermeiro, Void> param) {
+            final TableCell<Enfermeiro, Void> cell = new TableCell<Enfermeiro, Void>() {
 
                 private final Button btn = new Button("Editar");
 
                 {
                     btn.setOnAction((ActionEvent event) -> {
-                        Medico data = getTableView().getItems().get(getIndex());
+                        Enfermeiro data = getTableView().getItems().get(getIndex());
                         // Aqui você pode abrir uma nova janela ou realizar a ação de edição
                         System.out.println("Editar: " + data.getNomePessoal());
                     });
@@ -143,16 +136,16 @@ private void addButtonEditToTable() {
 }
 
 private void addButtonDeleteToTable() {
-    Callback<TableColumn<Medico, Void>, TableCell<Medico, Void>> cellFactory = new Callback<TableColumn<Medico, Void>, TableCell<Medico, Void>>() {
+    Callback<TableColumn<Enfermeiro, Void>, TableCell<Enfermeiro, Void>> cellFactory = new Callback<TableColumn<Enfermeiro, Void>, TableCell<Enfermeiro, Void>>() {
         @Override
-        public TableCell<Medico, Void> call(final TableColumn<Medico, Void> param) {
-            final TableCell<Medico, Void> cell = new TableCell<Medico, Void>() {
+        public TableCell<Enfermeiro, Void> call(final TableColumn<Enfermeiro, Void> param) {
+            final TableCell<Enfermeiro, Void> cell = new TableCell<Enfermeiro, Void>() {
 
                 private final Button btn = new Button("Deletar");
 
                 {
                     btn.setOnAction((ActionEvent event) -> {
-                        Medico data = getTableView().getItems().get(getIndex());
+                        Enfermeiro data = getTableView().getItems().get(getIndex());
                         // Aqui você pode abrir uma nova janela ou realizar a ação de edição
                         System.out.println("Deletar: " + data.getNomePessoal());
                     });

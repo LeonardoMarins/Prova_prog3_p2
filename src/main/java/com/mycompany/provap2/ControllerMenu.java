@@ -105,5 +105,27 @@ public class ControllerMenu {
         stage.show(); 
     }
     
+    @FXML
+    public void openCadastraEnfermeiro() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CadEnfermeiro.fxml"));
+        Parent root = fxmlLoader.load();
+        
+        Stage stage = new Stage();
+        stage.setTitle("Cadastra enfermeiro");
+        stage.setScene(new Scene(root));
+        stage.show(); 
+    }
+    
+    @FXML
+    public void openListEnfermeiro() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ListEnfermeiro.fxml"));
+        Parent root = fxmlLoader.load();
+        
+        Stage stage = new Stage();
+        stage.setTitle("Lista Medico");
+        stage.setScene(new Scene(root));
+        stage.show(); 
+    }
+    
     
 }
