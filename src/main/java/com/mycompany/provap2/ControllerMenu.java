@@ -127,5 +127,27 @@ public class ControllerMenu {
         stage.show(); 
     }
     
+    @FXML
+    public void openCadastraConsulta() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CadConsulta.fxml"));
+        Parent root = fxmlLoader.load();
+        
+        Stage stage = new Stage();
+        stage.setTitle("Cadastra consulta");
+        stage.setScene(new Scene(root));
+        stage.show(); 
+    }
+    
+    @FXML
+    public void openListConsulta() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ListConsulta.fxml"));
+        Parent root = fxmlLoader.load();
+        
+        Stage stage = new Stage();
+        stage.setTitle("Lista Consulta");
+        stage.setScene(new Scene(root));
+        stage.show(); 
+    }
+    
     
 }

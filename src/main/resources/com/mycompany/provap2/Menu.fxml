@@ -15,5 +15,7 @@
       <Button layoutX="203.0" layoutY="158.0" mnemonicParsing="false" onAction="#openListMedico" prefHeight="25.0" prefWidth="137.0" text="LISTAR MEDICO" />
       <Button layoutX="14.0" layoutY="206.0" mnemonicParsing="false" onAction="#openCadastraEnfermeiro" prefHeight="25.0" prefWidth="166.0" text="CADASTRAR ENFERMEIRO" />
       <Button layoutX="203.0" layoutY="206.0" mnemonicParsing="false" onAction="#openListEnfermeiro" prefHeight="25.0" prefWidth="137.0" text="LISTAR ENFERMEIRO" />
+      <Button layoutX="14.0" layoutY="253.0" mnemonicParsing="false" onAction="#openCadastraConsulta" prefHeight="25.0" prefWidth="166.0" text="CADASTRAR CONSULTA" />
+      <Button layoutX="203.0" layoutY="253.0" mnemonicParsing="false" onAction="#openListConsulta" prefHeight="25.0" prefWidth="137.0" text="LISTAR CONSULTA" />
    </children>
 </Pane>
