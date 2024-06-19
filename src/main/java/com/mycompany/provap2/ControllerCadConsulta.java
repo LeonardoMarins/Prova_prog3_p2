@@ -5,8 +5,6 @@
 package com.mycompany.provap2;
 
 import com.mycompany.provap2.backend.ConsultaMedica;
-import com.mycompany.provap2.backend.Endereco;
-import com.mycompany.provap2.backend.Genero;
 import com.mycompany.provap2.backend.Medico;
 import com.mycompany.provap2.backend.MenuBack;
 import com.mycompany.provap2.backend.Paciente;
