@@ -22,6 +22,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import javax.swing.JOptionPane;
 
@@ -180,17 +181,23 @@ public class ControllerCadEnfermeiro {
             Enfermeiro enfermeiro = new Enfermeiro(selectedRadio1, atendimento, dado);
             MenuBack.adicionarEnfermeiro(enfermeiro);
             JOptionPane.showMessageDialog(null, "Registro salvo com sucesso");
+            Stage stage = (Stage) txtSetor.getScene().getWindow();
+            stage.close();
             System.out.println(enfermeiro.getGenero());
         } else if (treinadoOPRX2) {
             selectedRadio2 = true;
             Enfermeiro enfermeiro = new Enfermeiro(selectedRadio2, atendimento, dado);
             MenuBack.adicionarEnfermeiro(enfermeiro);
             JOptionPane.showMessageDialog(null, "Registro salvo com sucesso");
+            Stage stage = (Stage) txtSetor.getScene().getWindow();
+            stage.close();
             System.out.println(enfermeiro.getGenero());
         } else {
             Enfermeiro enfermeiro = new Enfermeiro(false, atendimento, dado);
             MenuBack.adicionarEnfermeiro(enfermeiro);
             JOptionPane.showMessageDialog(null, "Registro salvo com sucesso");
+            Stage stage = (Stage) txtSetor.getScene().getWindow();
+            stage.close();
             System.out.println(enfermeiro.getGenero());
         }
        }catch(ParseException ex) {

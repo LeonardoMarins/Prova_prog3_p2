@@ -23,6 +23,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import javax.swing.JOptionPane;
 
@@ -192,6 +193,8 @@ public class ControllerCadMedico {
              Medico medico = new Medico(dado,numeroCRMI,areaEspecialidade,eCirurgiao,atendimento);
              MenuBack.adicionarMedico(medico);
              JOptionPane.showMessageDialog(null, "Registro salvo com sucesso");
+             Stage stage = (Stage) txtCrm.getScene().getWindow();
+             stage.close();
              
              System.out.println(medico.getIdMedico());
         } else if (naoECirurgiao) {
@@ -199,12 +202,16 @@ public class ControllerCadMedico {
             Medico medico = new Medico(dado, numeroCRMI,areaEspecialidade,naoECirurgiao,atendimento);
             MenuBack.adicionarMedico(medico);
             JOptionPane.showMessageDialog(null, "Registro salvo com sucesso");
+            Stage stage = (Stage) txtCrm.getScene().getWindow();
+            stage.close();
 
             System.out.println(medico.getIdMedico());
         } else {
             Medico medico = new Medico(dado, numeroCRMI,areaEspecialidade,false,atendimento);
             MenuBack.adicionarMedico(medico);
             JOptionPane.showMessageDialog(null, "Registro salvo com sucesso");
+            Stage stage = (Stage) txtCrm.getScene().getWindow();
+            stage.close();
 
             System.out.println(medico.getIdMedico());
         }

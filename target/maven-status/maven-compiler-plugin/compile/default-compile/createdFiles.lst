@@ -3,6 +3,7 @@ com\mycompany\provap2\ControllerListPaciente$4.class
 com\mycompany\provap2\ControllerCadPaciente.class
 com\mycompany\provap2\ControllerListConsulta.class
 com\mycompany\provap2\ControllerListPaciente$1.class
+com\mycompany\provap2\EditConsultaController$1.class
 com\mycompany\provap2\ControllerCadEnfermeiro$1.class
 com\mycompany\provap2\ControllerListMedico$4$1.class
 com\mycompany\provap2\ControllerListConsulta$1.class
@@ -50,6 +51,8 @@ com\mycompany\provap2\ControllerListConsulta$2$1.class
 com\mycompany\provap2\backend\Endereco.class
 com\mycompany\provap2\ControllerListEnfermeiro$3$1.class
 com\mycompany\provap2\backend\Genero.class
+com\mycompany\provap2\EditConsultaController$2.class
+com\mycompany\provap2\EditMedicoController.class
 com\mycompany\provap2\backend\Paciente.class
 com\mycompany\provap2\backend\Responsavel.class
 com\mycompany\provap2\backend\Enfermeiro.class

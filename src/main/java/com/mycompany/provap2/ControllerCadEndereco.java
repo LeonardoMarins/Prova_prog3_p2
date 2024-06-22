@@ -9,6 +9,7 @@ import com.mycompany.provap2.backend.Endereco;
 import com.mycompany.provap2.backend.MenuBack;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  *
@@ -51,6 +52,9 @@ public class ControllerCadEndereco {
          // Adiciona o endereço à lista de endereços na tela Menu
          MenuBack.adicionarEndereco(endereco);
          javax.swing.JOptionPane.showMessageDialog(null, "Registro salvo com sucesso");
+         
+          Stage stage = (Stage) txtRua.getScene().getWindow();
+          stage.close();
      }catch(NumberFormatException exs) {
          javax.swing.JOptionPane.showMessageDialog(null, "o campo de cep e número não podem ser vazios");
      }catch(IllegalArgumentException exs) {

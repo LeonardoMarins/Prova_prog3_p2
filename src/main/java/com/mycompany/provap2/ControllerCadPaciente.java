@@ -22,6 +22,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import javax.swing.JOptionPane;
 
@@ -203,6 +204,8 @@ public class ControllerCadPaciente {
 
             MenuBack.adicionarPaciente(paciente);
             JOptionPane.showMessageDialog(null, "Registro salvo com sucesso");
+            Stage stage = (Stage) txtNome.getScene().getWindow();
+            stage.close();
             
         }catch(IndexOutOfBoundsException ex) {
             ex.getMessage();

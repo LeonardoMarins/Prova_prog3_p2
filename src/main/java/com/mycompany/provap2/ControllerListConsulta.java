@@ -140,8 +140,9 @@ private void addButtonDeleteToTable() {
                 {
                     btn.setOnAction((ActionEvent event) -> {
                         ConsultaMedica data = getTableView().getItems().get(getIndex());
-                        // Aqui você pode abrir uma nova janela ou realizar a ação de edição
                         System.out.println("Deletar: " + data.getDiagnostico());
+                        UUID idConsulta = data.getIdConsulta();
+                        MenuBack.listaDeConsultaMedica.remove(idConsulta);
                     });
                 }
 
