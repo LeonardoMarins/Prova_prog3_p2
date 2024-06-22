@@ -179,7 +179,6 @@ public class ControllerMenu {
     public void importarJSON() {
         try {
             MenuBack.importarDeJSON("consultas.json");
-            //tableView.setItems(FXCollections.observableArrayList(MenuBack.listaDeConsultaMedica));
             javax.swing.JOptionPane.showMessageDialog(null, "Importado de JSON com sucesso");
         } catch (IOException e) {
             e.printStackTrace();
@@ -202,7 +201,6 @@ public class ControllerMenu {
     public void importarXML() {
         try {
             MenuBack.importarDeXML("consultas.xml");
-            //tableView.setItems(FXCollections.observableArrayList(MenuBack.listaDeConsultaMedica));
             javax.swing.JOptionPane.showMessageDialog(null, "Importado de XML com sucesso");
         } catch (JAXBException e) {
             e.printStackTrace();
