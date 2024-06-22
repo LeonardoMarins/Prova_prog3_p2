@@ -7,6 +7,7 @@ package com.mycompany.provap2;
 import com.mycompany.provap2.backend.Enfermeiro;
 import com.mycompany.provap2.backend.Medico;
 import com.mycompany.provap2.backend.MenuBack;
+import java.io.IOException;
 import java.util.UUID;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
@@ -14,11 +15,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 /**
@@ -113,9 +118,24 @@ private void addButtonEditToTable() {
                 {
                     btn.setOnAction((ActionEvent event) -> {
                         Enfermeiro data = getTableView().getItems().get(getIndex());
-                        // Aqui você pode abrir uma nova janela ou realizar a ação de edição
-                        System.out.println("Editar: " + data.getNomePessoal());
-                    });
+                        // Abrir uma nova janela e passar os dados da consulta
+                        try {
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("EditEnfermeiro.fxml"));
+                            Parent root = loader.load();
+                            EditEnfermeiroController controller = loader.getController();
+                            controller.setConsultaData(data);
+
+                            Stage stage = new Stage();
+                            stage.setScene(new Scene(root));
+                            stage.showAndWait();  // Esperar a janela ser fechada
+
+                            // Após a janela de edição ser fechada, atualizar a tabela
+                            tableView.refresh();
+
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
+                    }); 
                 }
 
                 @Override
@@ -146,8 +166,10 @@ private void addButtonDeleteToTable() {
                 {
                     btn.setOnAction((ActionEvent event) -> {
                         Enfermeiro data = getTableView().getItems().get(getIndex());
-                        // Aqui você pode abrir uma nova janela ou realizar a ação de edição
                         System.out.println("Deletar: " + data.getNomePessoal());
+                        MenuBack.listaDeEnfermeiros.remove(data);  // Remover a instância de ConsultaMedica diretamente
+                        tableView.getItems().remove(data);  // Atualizar a TableView
+                        tableView.refresh();
                     });
                 }
 

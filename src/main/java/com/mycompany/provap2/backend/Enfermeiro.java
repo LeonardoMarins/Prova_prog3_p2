@@ -74,4 +74,16 @@ public class Enfermeiro extends AtendenteHospitalar {
     public void setContatoTelEmail(ContatoTelEmail contato) {
         this.contato = contato; // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+    
+     public void setTelefone(Long telefone) {
+        this.contato.setTelefone(telefone);
+    }
+    
+    public void setCelular(Long celular) {
+        this.contato.setCelular(celular);
+    }
+    
+    public void setEmail(String email) {
+        this.contato.setEmail(email);
+    }
 }

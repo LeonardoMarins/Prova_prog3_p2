@@ -4,7 +4,6 @@
  */
 package com.mycompany.provap2;
 
-import com.mycompany.provap2.backend.ConsultaMedica;
 import com.mycompany.provap2.backend.Medico;
 import com.mycompany.provap2.backend.MenuBack;
 import java.io.IOException;

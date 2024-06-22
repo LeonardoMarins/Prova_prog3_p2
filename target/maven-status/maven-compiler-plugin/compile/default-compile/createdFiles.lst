@@ -15,6 +15,7 @@ com\mycompany\provap2\backend\AtendenteHospitalar.class
 com\mycompany\provap2\ControllerListPaciente$5$1.class
 com\mycompany\provap2\backend\Medico.class
 com\mycompany\provap2\ControllerCadConsulta.class
+com\mycompany\provap2\EditEnfermeiroController$2.class
 com\mycompany\provap2\ControllerListMedico$4.class
 com\mycompany\provap2\ControllerCadMedico.class
 com\mycompany\provap2\EditMedicoController$1.class
@@ -29,6 +30,7 @@ com\mycompany\provap2\EditPacienteController$1.class
 com\mycompany\provap2\backend\ContatoTelEmail.class
 com\mycompany\provap2\ControllerListPaciente$5.class
 com\mycompany\provap2\ControllerCadEndereco.class
+com\mycompany\provap2\EditEnfermeiroController.class
 com\mycompany\provap2\EditConsultaController.class
 com\mycompany\provap2\EditPacienteController.class
 com\mycompany\provap2\ControllerListMedico$3.class
@@ -55,6 +57,7 @@ com\mycompany\provap2\ControllerCadMedico$2.class
 com\mycompany\provap2\ControllerListConsulta$2$1.class
 com\mycompany\provap2\backend\Endereco.class
 com\mycompany\provap2\ControllerListEnfermeiro$3$1.class
+com\mycompany\provap2\EditEnfermeiroController$1.class
 com\mycompany\provap2\backend\Genero.class
 com\mycompany\provap2\EditConsultaController$2.class
 com\mycompany\provap2\EditMedicoController.class
