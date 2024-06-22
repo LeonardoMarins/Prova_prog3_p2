@@ -8,6 +8,8 @@ import com.mycompany.provap2.backend.Endereco;
 import com.mycompany.provap2.backend.Genero;
 import com.mycompany.provap2.backend.Medico;
 import com.mycompany.provap2.backend.MenuBack;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.FXCollections;
@@ -19,6 +21,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -134,16 +137,25 @@ public class EditMedicoController {
     }
 
     @FXML
-    public void saveConsultaEdit() {
-        medico.setNumeroCRM(medico.getNumeroCRM());
-        medico.setAreasEspecialidade(medico.getAreasEspecialidade());
-        medico.setSetor(medico.getSetor());
-        medico.setChSemanal(medico.getChSemanal());
-        medico.setNomePessoal(medico.getNomePessoal()); 
-        medico.setDataNascimento(medico.getDataNascimento());
-        medico.setTelefone(medico.getContato().getTelefone());
-        medico.setCelular(medico.getContato().getCelular());
-        medico.setEmail(medico.getContato().getEmail());
+    public void saveMedicoEdit() throws ParseException {
+        try {
+        medico.setNumeroCRM(Integer.parseInt(txtCrm.getText()));
+        medico.setAreasEspecialidade(txtAreaEspecifica.getText());
+        medico.setSetor(txtSetor.getText());
+        medico.setChSemanal(Integer.parseInt(txtChSemanal.getText()));
+        medico.setNomePessoal(txtNome.getText()); 
+        SimpleDateFormat formata = new SimpleDateFormat("dd/MM/yyyy");  
+        medico.setDataNascimento(formata.parse(txtDataDeNascimento.getText()));
+        medico.setTelefone(Long.valueOf(txtTelefone.getText()));
+        medico.setCelular(Long.valueOf(txtCelular.getText()));
+        medico.setEmail(txtEmail.getText());
+        }catch(ParseException e ) {
+            JOptionPane.showMessageDialog(null, "o formato da data deve ser ex: 12/12/2002");
+        }catch(NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "o número do CRM ultrapassou o limite de caracter");
+        }catch(Exception e) {
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro tente denovo");
+        }
 
         // Fechar a janela
         Stage stage = (Stage) txtCrm.getScene().getWindow();
