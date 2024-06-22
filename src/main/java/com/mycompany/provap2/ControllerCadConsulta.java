@@ -16,6 +16,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import javax.swing.JOptionPane;
 
@@ -131,6 +132,8 @@ public class ControllerCadConsulta {
                     exameDeQueixa, diagnostico, prescricao, indicacao);
             MenuBack.adicionarConsultaMedica(consulta);
             JOptionPane.showMessageDialog(null, "Registro salvo com sucesso");
+            Stage stage = (Stage) txtQueixa.getScene().getWindow();
+            stage.close();
             System.out.println(consulta.getIdConsulta());
         } else if (indicacao2) {
 
@@ -138,12 +141,16 @@ public class ControllerCadConsulta {
                     exameDeQueixa, diagnostico, prescricao, indicacao2);
              MenuBack.adicionarConsultaMedica(consulta);
              JOptionPane.showMessageDialog(null, "Registro salvo com sucesso");
+             Stage stage = (Stage) txtQueixa.getScene().getWindow();
+             stage.close();
              System.out.println(consulta.getIdConsulta());
         } else {
             ConsultaMedica consulta = new ConsultaMedica(paciente, medico, 
                     exameDeQueixa, diagnostico, prescricao, false);
             MenuBack.adicionarConsultaMedica(consulta);
             JOptionPane.showMessageDialog(null, "Registro salvo com sucesso");
+            Stage stage = (Stage) txtQueixa.getScene().getWindow();
+            stage.close();
             System.out.println(consulta.getIdConsulta());
         }
       }catch(IndexOutOfBoundsException ex) {

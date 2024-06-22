@@ -113,13 +113,7 @@ public class EditConsultaController {
         consulta.setExameQueixa(txtQueixaEdit.getText());
         consulta.setDiagnostico(txtDiagnosticoEdit.getText());
         consulta.setPrescricao(txtPrescricaoEdit.getText());
-        
-        if(sim.isSelected()) {
-            consulta.setIndicacaoCirurgica(true);
-        }else {
-            consulta.setIndicacaoCirurgica(false);
-        }
-        
+
         consulta.setIdMedico(txtMedicoEdit.getValue().getIdMedico());
         
         consulta.setIdPaciente(txtPacienteEdit.getValue().getIdPaciente());
