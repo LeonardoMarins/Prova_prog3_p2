@@ -4,18 +4,10 @@
  */
 package com.mycompany.provap2;
 
-import com.mycompany.provap2.backend.ContatoTelEmail;
-import com.mycompany.provap2.backend.DadoPessoal;
-import com.mycompany.provap2.backend.Endereco;
-import com.mycompany.provap2.backend.Genero;
 import com.mycompany.provap2.backend.MenuBack;
-import com.mycompany.provap2.backend.Paciente;
-import com.mycompany.provap2.backend.Responsavel;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import jakarta.xml.bind.JAXBException;
 import java.io.IOException;
-import java.lang.System.Logger;
-import java.util.*;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -172,6 +164,51 @@ public class ControllerMenu {
         }
     }
     
-     
+    @FXML
+    public void exportarJSON() {
+        try {
+            MenuBack.exportarParaJSON("consultas.json");
+            javax.swing.JOptionPane.showMessageDialog(null, "Exportado para JSON com sucesso");
+        } catch (IOException e) {
+            e.printStackTrace();
+            javax.swing.JOptionPane.showMessageDialog(null, "Erro ao exportar para JSON");
+        }
+    }
+
+    @FXML
+    public void importarJSON() {
+        try {
+            MenuBack.importarDeJSON("consultas.json");
+            //tableView.setItems(FXCollections.observableArrayList(MenuBack.listaDeConsultaMedica));
+            javax.swing.JOptionPane.showMessageDialog(null, "Importado de JSON com sucesso");
+        } catch (IOException e) {
+            e.printStackTrace();
+            javax.swing.JOptionPane.showMessageDialog(null, "Erro ao importar de JSON");
+        }
+    }
+
+    @FXML
+    public void exportarXML() {
+        try {
+            MenuBack.exportarParaXML("consultas.xml");
+            javax.swing.JOptionPane.showMessageDialog(null, "Exportado para XML com sucesso");
+        } catch (JAXBException e) {
+            e.printStackTrace();
+            javax.swing.JOptionPane.showMessageDialog(null, "Erro ao exportar para XML");
+        }
+    }
+
+    @FXML
+    public void importarXML() {
+        try {
+            MenuBack.importarDeXML("consultas.xml");
+            //tableView.setItems(FXCollections.observableArrayList(MenuBack.listaDeConsultaMedica));
+            javax.swing.JOptionPane.showMessageDialog(null, "Importado de XML com sucesso");
+        } catch (JAXBException e) {
+            e.printStackTrace();
+            javax.swing.JOptionPane.showMessageDialog(null, "Erro ao importar de XML");
+        }
+
+    }
     
 }

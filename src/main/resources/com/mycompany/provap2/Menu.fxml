@@ -4,7 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="362.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.provap2.ControllerMenu">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="483.0" prefWidth="362.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.provap2.ControllerMenu">
    <children>
       <Button fx:id="cadastraEndereco" layoutX="14.0" layoutY="61.0" mnemonicParsing="false" onAction="#openCadastroEndereco" prefHeight="25.0" prefWidth="166.0" text="CADASTRAR ENDEREÇO" />
       <Button fx:id="listEndereco" layoutX="203.0" layoutY="61.0" mnemonicParsing="false" onAction="#openListEndereco" prefHeight="25.0" prefWidth="137.0" text="LISTAR ENDEREÇOS" />
@@ -20,5 +20,10 @@
       <Label layoutX="162.0" layoutY="292.0" text="EXCEL" />
       <Button layoutX="14.0" layoutY="322.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="166.0" text="IMPORTAR EXCEL" />
       <Button layoutX="203.0" layoutY="322.0" mnemonicParsing="false" onAction="#exportarExcel" prefHeight="25.0" prefWidth="137.0" text="EXPORTAR EXCEL" />
+      <Label layoutX="116.0" layoutY="379.0" text="DADOS EM JSON/XML" />
+      <Button layoutX="14.0" layoutY="405.0" mnemonicParsing="false" onAction="#exportarJSON" prefHeight="25.0" prefWidth="166.0" text="EXPORTAR JSON" />
+      <Button layoutX="14.0" layoutY="444.0" mnemonicParsing="false" onAction="#importarJSON" prefHeight="25.0" prefWidth="166.0" text="IMPORTAR JSON" />
+      <Button layoutX="203.0" layoutY="405.0" mnemonicParsing="false" onAction="#exportarXML" prefHeight="25.0" prefWidth="137.0" text="EXPORTAR XML" />
+      <Button layoutX="204.0" layoutY="444.0" mnemonicParsing="false" onAction="#importarXML" prefHeight="25.0" prefWidth="137.0" text="IMPORTAR XML" />
    </children>
 </Pane>

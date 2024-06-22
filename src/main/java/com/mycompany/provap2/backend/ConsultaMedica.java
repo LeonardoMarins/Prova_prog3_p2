@@ -4,12 +4,15 @@
  */
 package com.mycompany.provap2.backend;
 
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import java.util.UUID;
 
 /**
  *
  * @author marin
  */
+@XmlRootElement
 public class ConsultaMedica {
     protected UUID idConsulta;
     protected UUID idPaciente; 
@@ -33,9 +36,14 @@ public class ConsultaMedica {
             throw new IllegalArgumentException("A queixa do paciente não pode ficar vazia");
         }
     }
+    
+    public ConsultaMedica() {
+        // Construtor no-arg default
+    }
     /**
      * @return the idConsulta
      */
+    @XmlElement
     public UUID getIdConsulta() {
         return idConsulta;
     }
@@ -50,6 +58,7 @@ public class ConsultaMedica {
     /**
      * @return the idPaciente
      */
+    @XmlElement
     public UUID getIdPaciente() {
         return idPaciente;
     }
@@ -64,6 +73,7 @@ public class ConsultaMedica {
     /**
      * @return the idMedico
      */
+    @XmlElement
     public UUID getIdMedico() {
         return idMedico;
     }
@@ -78,6 +88,7 @@ public class ConsultaMedica {
     /**
      * @return the exameQueixa
      */
+    @XmlElement
     public String getExameQueixa() {
         return exameQueixa;
     }
@@ -92,6 +103,7 @@ public class ConsultaMedica {
     /**
      * @return the diagnostico
      */
+    @XmlElement
     public String getDiagnostico() {
         return diagnostico;
     }
@@ -106,6 +118,7 @@ public class ConsultaMedica {
     /**
      * @return the prescricao
      */
+    @XmlElement
     public String getPrescricao() {
         return prescricao;
     }
@@ -120,6 +133,7 @@ public class ConsultaMedica {
     /**
      * @return the indicacaoCirurgica
      */
+    @XmlElement
     public boolean isIndicacaoCirurgica() {
         return indicacaoCirurgica;
     }
