@@ -4,18 +4,27 @@
  */
 package com.mycompany.provap2;
 
+import com.mycompany.provap2.backend.ContatoTelEmail;
+import com.mycompany.provap2.backend.DadoPessoal;
+import com.mycompany.provap2.backend.Endereco;
+import com.mycompany.provap2.backend.Genero;
+import com.mycompany.provap2.backend.MenuBack;
+import com.mycompany.provap2.backend.Paciente;
+import com.mycompany.provap2.backend.Responsavel;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 /**
  *
  * @author marin
  */
 public class ControllerMenu {
+     String name;
     
     @FXML
     public void openCadastroEndereco() throws IOException {
@@ -149,5 +158,13 @@ public class ControllerMenu {
         stage.show(); 
     }
     
+    @FXML
+    public void exportarExcel() throws IOException {
+        ExcelController excel = new ExcelController();
+        
+        excel.executeExcel();
+    }
+    
+     
     
 }

@@ -33,6 +33,7 @@ com\mycompany\provap2\EditController\EditPacienteController.class
 com\mycompany\provap2\ListController\ControllerListConsulta$1.class
 com\mycompany\provap2\ListController\ControllerListConsulta$1$1.class
 com\mycompany\provap2\ListController\ControllerListMedico$4.class
+com\mycompany\provap2\ExcelController.class
 com\mycompany\provap2\backend\ContatoTelEmail.class
 com\mycompany\provap2\Controller\ControllerCadPaciente.class
 com\mycompany\provap2\ListController\ControllerListEnfermeiro$3$1.class

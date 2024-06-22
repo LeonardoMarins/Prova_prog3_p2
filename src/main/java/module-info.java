@@ -2,6 +2,8 @@ module com.mycompany.provap2 {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.desktop;
+    requires org.apache.poi.poi;
+    requires org.apache.poi.ooxml;
 
     opens com.mycompany.provap2.Controller to javafx.fxml;
     opens com.mycompany.provap2.EditController to javafx.fxml;
