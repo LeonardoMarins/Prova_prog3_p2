@@ -14,11 +14,14 @@ import com.mycompany.provap2.backend.Responsavel;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.lang.System.Logger;
+import java.util.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 /**
  *
  * @author marin
@@ -161,8 +164,12 @@ public class ControllerMenu {
     @FXML
     public void exportarExcel() throws IOException {
         ExcelController excel = new ExcelController();
-        
-        excel.executeExcel();
+         name = JOptionPane.showInputDialog("qual o nome do excel ?");
+        try {
+            excel.exportExcel(name);
+        } catch (IOException ex) {
+            ex.getMessage();
+        }
     }
     
      

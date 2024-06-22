@@ -34,11 +34,11 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class ExcelController {
     String name;
     
-    public void executeExcel() throws IOException {
+    public void exportExcel(String nomeDoExcel) throws IOException {
         String userHome = System.getProperty("user.home");
         String downloadsPath = userHome + "/Downloads/";
 
-        String filePath = downloadsPath + "teste" + ".xlsx";
+        String filePath = downloadsPath + nomeDoExcel + ".xlsx";
 
         try (Workbook workbook = new XSSFWorkbook()) {
             exportarPaciente(workbook);
