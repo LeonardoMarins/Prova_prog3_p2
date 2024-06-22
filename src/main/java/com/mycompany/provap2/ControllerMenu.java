@@ -19,7 +19,7 @@ public class ControllerMenu {
     
     @FXML
     public void openCadastroEndereco() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CadEndereco.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("endereco/CadEndereco.fxml"));
         Parent root = fxmlLoader.load();
         
         Stage stage = new Stage();
@@ -30,7 +30,7 @@ public class ControllerMenu {
     
     @FXML
     public void openListEndereco() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ListEndereco.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("endereco/ListEndereco.fxml"));
         Parent root = fxmlLoader.load();
         
         Stage stage = new Stage();
@@ -41,7 +41,7 @@ public class ControllerMenu {
     
     @FXML
     public void openCadastraResponsavel() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CadResponsavel.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("responsavel/CadResponsavel.fxml"));
         Parent root = fxmlLoader.load();
         
         Stage stage = new Stage();
@@ -52,7 +52,7 @@ public class ControllerMenu {
     
     @FXML
     public void openListResponsavel() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ListResponsavel.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("responsavel/ListResponsavel.fxml"));
         Parent root = fxmlLoader.load();
         
         Stage stage = new Stage();
@@ -63,7 +63,7 @@ public class ControllerMenu {
     
     @FXML
     public void openCadastraPaciente() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CadPaciente.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("paciente/CadPaciente.fxml"));
         Parent root = fxmlLoader.load();
         
         Stage stage = new Stage();
@@ -74,7 +74,7 @@ public class ControllerMenu {
     
     @FXML
     public void openListPaciente() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ListPaciente.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("paciente/ListPaciente.fxml"));
         Parent root = fxmlLoader.load();
         
         Stage stage = new Stage();
@@ -85,7 +85,7 @@ public class ControllerMenu {
     
     @FXML
     public void openCadastraMedico() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CadMedico.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("medico/CadMedico.fxml"));
         Parent root = fxmlLoader.load();
         
         Stage stage = new Stage();
@@ -96,7 +96,7 @@ public class ControllerMenu {
     
     @FXML
     public void openListMedico() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ListMedico.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("medico/ListMedico.fxml"));
         Parent root = fxmlLoader.load();
         
         Stage stage = new Stage();
@@ -107,7 +107,7 @@ public class ControllerMenu {
     
     @FXML
     public void openCadastraEnfermeiro() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CadEnfermeiro.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("enfermeiro/CadEnfermeiro.fxml"));
         Parent root = fxmlLoader.load();
         
         Stage stage = new Stage();
@@ -118,7 +118,7 @@ public class ControllerMenu {
     
     @FXML
     public void openListEnfermeiro() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ListEnfermeiro.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("enfermeiro/ListEnfermeiro.fxml"));
         Parent root = fxmlLoader.load();
         
         Stage stage = new Stage();
@@ -129,7 +129,7 @@ public class ControllerMenu {
     
     @FXML
     public void openCadastraConsulta() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CadConsulta.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("consulta/CadConsulta.fxml"));
         Parent root = fxmlLoader.load();
         
         Stage stage = new Stage();
@@ -140,7 +140,7 @@ public class ControllerMenu {
     
     @FXML
     public void openListConsulta() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ListConsulta.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("consulta/ListConsulta.fxml"));
         Parent root = fxmlLoader.load();
         
         Stage stage = new Stage();
