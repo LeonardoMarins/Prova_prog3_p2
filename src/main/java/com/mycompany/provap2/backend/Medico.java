@@ -102,5 +102,16 @@ public class Medico extends AtendenteHospitalar {
         this.contato = contato;
     }
    
-   
+    public void setTelefone(Long telefone) {
+        this.contato.setTelefone(telefone);
+    }
+    
+    public void setCelular(Long celular) {
+        this.contato.setCelular(celular);
+    }
+    
+    public void setEmail(String email) {
+        this.contato.setEmail(email);
+    }
+    
 }

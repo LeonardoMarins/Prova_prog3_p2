@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="594.0" prefWidth="387.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.provap2.ControllerCadMedico">
+   <children>
+      <Label layoutX="139.0" layoutY="14.0" text="CADASTRO MEDICO" />
+      <Label layoutX="14.0" layoutY="47.0" text="NÚMERO CRM:" />
+      <TextField fx:id="txtCrm" layoutX="106.0" layoutY="43.0" prefHeight="25.0" prefWidth="255.0" />
+      <Label layoutX="14.0" layoutY="111.0" text="ARÉA ESP:" />
+      <TextArea fx:id="txtAreaEspecifica" layoutX="96.0" layoutY="82.0" prefHeight="74.0" prefWidth="261.0" />
+      <Label layoutX="14.0" layoutY="167.0" text="CIRURGIÃO:" />
+      <CheckBox fx:id="sim" layoutX="96.0" layoutY="167.0" mnemonicParsing="false" text="SIM" />
+      <CheckBox fx:id="nao" layoutX="157.0" layoutY="167.0" mnemonicParsing="false" text="NÃO" />
+      <Label layoutX="14.0" layoutY="200.0" text="SETOR:" />
+      <TextField fx:id="txtSetor" layoutX="64.0" layoutY="196.0" prefHeight="25.0" prefWidth="293.0" />
+      <Label layoutX="14.0" layoutY="232.0" text="CHSEMANAL:" />
+      <TextField fx:id="txtChSemanal" layoutX="96.0" layoutY="228.0" prefHeight="25.0" prefWidth="261.0" />
+      <Label layoutX="14.0" layoutY="265.0" text="NOME:" />
+      <TextField fx:id="txtNome" layoutX="64.0" layoutY="261.0" prefHeight="25.0" prefWidth="293.0" />
+      <Label layoutX="14.0" layoutY="296.0" text="DATA DE NASCIMENTO:" />
+      <TextField fx:id="txtDataDeNascimento" layoutX="159.0" layoutY="292.0" prefHeight="25.0" prefWidth="198.0" />
+      <Label layoutX="14.0" layoutY="330.0" text="ENDEREÇO:" />
+      <Label layoutX="14.0" layoutY="366.0" text="GENERO:" />
+      <Label layoutX="14.0" layoutY="400.0" text="TELEFONE:" />
+      <Label layoutX="15.0" layoutY="435.0" text="CELULAR:" />
+      <Label layoutX="14.0" layoutY="467.0" text="EMAIL:" />
+      <TextField fx:id="txtTelefone" layoutX="83.0" layoutY="396.0" prefHeight="25.0" prefWidth="272.0" />
+      <TextField fx:id="txtCelular" layoutX="83.0" layoutY="431.0" prefHeight="25.0" prefWidth="272.0" />
+      <TextField fx:id="txtEmail" layoutX="83.0" layoutY="463.0" prefHeight="25.0" prefWidth="272.0" />
+      <Button layoutX="279.0" layoutY="513.0" mnemonicParsing="false" onAction="#saveMedico" prefHeight="44.0" prefWidth="82.0" text="SALVAR" />
+      <Button layoutX="24.0" layoutY="513.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="94.0" text="LIMPAR" />
+      <ComboBox fx:id="txtEndereco" layoutX="84.0" layoutY="326.0" prefHeight="25.0" prefWidth="272.0" />
+      <ComboBox fx:id="txtGenero" layoutX="84.0" layoutY="362.0" prefHeight="25.0" prefWidth="272.0" />
+   </children>
+</Pane>
