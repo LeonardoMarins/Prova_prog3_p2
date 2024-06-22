@@ -95,7 +95,7 @@ private void addButtonEditToTable() {
                         ConsultaMedica data = getTableView().getItems().get(getIndex());
                         // Abrir uma nova janela e passar os dados da consulta
                         try {
-                            FXMLLoader loader = new FXMLLoader(getClass().getResource("EditConsulta.fxml"));
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/mycompany/provap2/consulta/EditConsulta.fxml"));
                             Parent root = loader.load();
                             EditConsultaController controller = loader.getController();
                             controller.setConsultaData(data);

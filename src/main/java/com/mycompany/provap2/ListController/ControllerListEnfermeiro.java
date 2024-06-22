@@ -121,7 +121,7 @@ private void addButtonEditToTable() {
                         Enfermeiro data = getTableView().getItems().get(getIndex());
                         // Abrir uma nova janela e passar os dados da consulta
                         try {
-                            FXMLLoader loader = new FXMLLoader(getClass().getResource("EditEnfermeiro.fxml"));
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/mycompany/provap2/enfermeiro/EditEnfermeiro.fxml"));
                             Parent root = loader.load();
                             EditEnfermeiroController controller = loader.getController();
                             controller.setConsultaData(data);

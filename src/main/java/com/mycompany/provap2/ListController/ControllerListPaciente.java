@@ -5,7 +5,6 @@
 package com.mycompany.provap2.ListController;
 
 import com.mycompany.provap2.EditController.EditPacienteController;
-import com.mycompany.provap2.backend.ConsultaMedica;
 import com.mycompany.provap2.backend.MenuBack;
 import com.mycompany.provap2.backend.Paciente;
 import java.io.IOException;
@@ -130,7 +129,7 @@ private void addButtonEditToTable() {
                         Paciente data = getTableView().getItems().get(getIndex());
                         // Abrir uma nova janela e passar os dados da consulta
                         try {
-                            FXMLLoader loader = new FXMLLoader(getClass().getResource("EditPaciente.fxml"));
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/mycompany/provap2/paciente/EditPaciente.fxml"));
                             Parent root = loader.load();
                             EditPacienteController controller = loader.getController();
                             controller.setConsultaData(data);
