@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="699.0" prefWidth="419.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.provap2.ControllerCadPaciente">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="699.0" prefWidth="419.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.provap2.EditPacienteController">
    <children>
       <Label layoutX="152.0" layoutY="14.0" text="CADASTRO PACIENTE" />
       <Label layoutX="14.0" layoutY="54.0" text="NOME COMPLETO:" />
@@ -30,7 +30,7 @@
       <TextField fx:id="txtCelular" layoutX="88.0" layoutY="375.0" prefHeight="25.0" prefWidth="306.0" />
       <Label layoutX="18.0" layoutY="409.0" text="EMAIL:" />
       <TextField fx:id="txtEmail" layoutX="88.0" layoutY="405.0" prefHeight="25.0" prefWidth="306.0" />
-      <Button fx:id="salvarPaciente" layoutX="268.0" layoutY="636.0" mnemonicParsing="false" onAction="#savePaciente" prefHeight="49.0" prefWidth="111.0" text="SALVAR" />
+      <Button fx:id="salvarPaciente" layoutX="268.0" layoutY="636.0" mnemonicParsing="false" onAction="#savePacienteEdit" prefHeight="49.0" prefWidth="111.0" text="SALVAR" />
       <Button layoutX="21.0" layoutY="636.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="111.0" text="LIMPAR" />
       <Label layoutX="18.0" layoutY="482.0" text="NOME DO RESPONSAVEL:" />
       <TextField fx:id="txtNomeResponsavel" layoutX="173.0" layoutY="478.0" prefHeight="25.0" prefWidth="224.0" />

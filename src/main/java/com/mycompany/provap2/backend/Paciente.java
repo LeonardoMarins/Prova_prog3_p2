@@ -94,7 +94,39 @@ public class Paciente extends DadoPessoal {
         this.contato = contato;
     }
     
-    public String getResponsavel() {
+    public String getResponsavelNome() {
         return responsavel.getNomeResponsavel();
+    }
+    
+    public void setResponsavelNome(String nome) {
+        this.responsavel.setNomeResponsavel(nome);
+    }
+    
+    public Responsavel getResponsavel() {
+        return responsavel;
+    }
+    
+    public void setTelefoneResponsavel(Long telefone) {
+        this.responsavel.setTelefone(telefone);
+    }
+    
+    public void setCelularResponsavel(Long celular) {
+        this.responsavel.setTelefone(celular);
+    }
+    
+    public void setEmailResponsavel(String email) {
+        this.responsavel.setEmail(email);
+    }
+    
+    public void setTelefone(Long telefone) {
+        this.contato.setTelefone(telefone);
+    }
+    
+    public void setCelular(Long celular) {
+        this.contato.setTelefone(celular);
+    }
+    
+    public void setEmail(String email) {
+        this.contato.setEmail(email);
     }
 }

@@ -1,6 +1,7 @@
 com\mycompany\provap2\ControllerListEnfermeiro$4.class
 com\mycompany\provap2\ControllerListPaciente$4.class
 com\mycompany\provap2\ControllerCadPaciente.class
+com\mycompany\provap2\EditPacienteController$2.class
 com\mycompany\provap2\ControllerListConsulta.class
 com\mycompany\provap2\ControllerListPaciente$1.class
 com\mycompany\provap2\EditConsultaController$1.class
@@ -24,10 +25,12 @@ com\mycompany\provap2\ControllerListEnfermeiro$1.class
 com\mycompany\provap2\ControllerListMedico$1.class
 com\mycompany\provap2\ControllerCadConsulta$1.class
 com\mycompany\provap2\ControllerCadPaciente$1.class
+com\mycompany\provap2\EditPacienteController$1.class
 com\mycompany\provap2\backend\ContatoTelEmail.class
 com\mycompany\provap2\ControllerListPaciente$5.class
 com\mycompany\provap2\ControllerCadEndereco.class
 com\mycompany\provap2\EditConsultaController.class
+com\mycompany\provap2\EditPacienteController.class
 com\mycompany\provap2\ControllerListMedico$3.class
 com\mycompany\provap2\EditMedicoController$2.class
 com\mycompany\provap2\ControllerListEnfermeiro$2.class
