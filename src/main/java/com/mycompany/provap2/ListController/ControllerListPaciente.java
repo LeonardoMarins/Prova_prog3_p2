@@ -194,8 +194,8 @@ private void addButtonDeleteToTable() {
                     btn.setOnAction((ActionEvent event) -> {
                         Paciente data = getTableView().getItems().get(getIndex());
                         System.out.println("Deletar: " + data.getResponsavelNome());
-                         MenuBack.listaDePaciente.remove(data);  // Remover a instância de ConsultaMedica diretamente
-                        tableView.getItems().remove(data);  // Atualizar a TableView
+                        list.remove(data);
+                        MenuBack.listaDePaciente.remove(data);
                         tableView.refresh();
                     });
                 }

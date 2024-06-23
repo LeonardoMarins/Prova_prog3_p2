@@ -1,20 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
 
-<TableView fx:id="tableView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="917.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.provap2.ListController.ControllerListEnfermeiro">
-  <columns>
-    <TableColumn fx:id="id" prefWidth="75.0" text="ID" />
-    <TableColumn fx:id="nome" prefWidth="75.0" text="NOME" />
-      <TableColumn fx:id="dataDeNascimento" prefWidth="146.4000244140625" text="DATA DE NASCIMENTO" />
-      <TableColumn fx:id="endereco" prefWidth="75.0" text="ENDEREÇO" />
-      <TableColumn fx:id="genero" prefWidth="75.0" text="GENERO" />
-      <TableColumn fx:id="setor" prefWidth="75.0" text="SETOR" />
-      <TableColumn fx:id="chSemanal" prefWidth="84.79998779296875" text="CHSEMANAL" />
-      <TableColumn fx:id="contato" prefWidth="75.0" text="CONTATO" />
-      <TableColumn fx:id="oprx" prefWidth="75.0" text="OPRX" />
-      <TableColumn fx:id="editar" prefWidth="75.0" text="EDITAR" />
-      <TableColumn fx:id="deletar" prefWidth="75.0" text="DELETAR" />
-  </columns>
-</TableView>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="419.0" prefWidth="906.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.provap2.ListController.ControllerListEnfermeiro">
+   <children>
+      <TableView fx:id="tableView" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="369.0" prefWidth="906.0">
+         <columns>
+            <TableColumn fx:id="id" prefWidth="75.0" text="ID" />
+            <TableColumn fx:id="nome" prefWidth="75.0" text="NOME" />
+            <TableColumn fx:id="dataDeNascimento" prefWidth="146.4000244140625" text="DATA DE NASCIMENTO" />
+            <TableColumn fx:id="endereco" prefWidth="75.0" text="ENDEREÇO" />
+            <TableColumn fx:id="genero" prefWidth="75.0" text="GENERO" />
+            <TableColumn fx:id="setor" prefWidth="75.0" text="SETOR" />
+            <TableColumn fx:id="chSemanal" prefWidth="84.79998779296875" text="CHSEMANAL" />
+            <TableColumn fx:id="contato" prefWidth="75.0" text="CONTATO" />
+            <TableColumn fx:id="oprx" prefWidth="75.0" text="OPRX" />
+            <TableColumn fx:id="editar" prefWidth="75.0" text="EDITAR" />
+            <TableColumn fx:id="deletar" prefWidth="75.0" text="DELETAR" />
+         </columns>
+      </TableView>
+      <TextField fx:id="txtPesquisa" layoutX="126.0" layoutY="14.0" prefHeight="25.0" prefWidth="207.0" />
+      <Label layoutX="14.0" layoutY="18.0" text="PESQUISAR NOME:" />
+   </children>
+</Pane>

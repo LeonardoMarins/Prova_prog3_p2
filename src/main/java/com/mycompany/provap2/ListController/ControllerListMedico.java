@@ -13,6 +13,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,6 +23,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -34,6 +36,9 @@ public class ControllerListMedico {
     
     @FXML
     private TableView<Medico> tableView;
+    
+    @FXML
+    private TextField txtPesquisa;
      
     @FXML
     private TableColumn<Medico, UUID> id;
@@ -111,7 +116,18 @@ public class ControllerListMedico {
         
         addButtonDeleteToTable();
 
-        tableView.setItems(list);
+        FilteredList<Medico> filteredData = new FilteredList<>(list, p -> true);
+        tableView.setItems(filteredData);
+
+        txtPesquisa.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(medico -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+                String lowerCaseFilter = newValue.toLowerCase();
+                return medico.getNomePessoal().toLowerCase().contains(lowerCaseFilter); // filtra por nome
+            });
+        });
     }
     
     
@@ -175,8 +191,8 @@ private void addButtonDeleteToTable() {
                      btn.setOnAction((ActionEvent event) -> {
                         Medico data = getTableView().getItems().get(getIndex());
                         System.out.println("Deletar: " + data.getNomePessoal());
-                         MenuBack.listaDeMedicos.remove(data);  // Remover a instância de ConsultaMedica diretamente
-                        tableView.getItems().remove(data);  // Atualizar a TableView
+                        list.remove(data);
+                        MenuBack.listaDeMedicos.remove(data);
                         tableView.refresh();
                     });
                 }

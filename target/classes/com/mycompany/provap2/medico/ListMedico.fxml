@@ -1,22 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
 
-<TableView fx:id="tableView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="564.0" prefWidth="1268.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.provap2.ListController.ControllerListMedico">
-  <columns>
-    <TableColumn fx:id="id" prefWidth="41.59997636079788" text="ID" />
-    <TableColumn fx:id="numeroCrm" prefWidth="96.79998397827148" text="NUMERO CRM" />
-      <TableColumn fx:id="areaEsp" prefWidth="62.4000244140625" text="ARÉA ESP" />
-      <TableColumn fx:id="cirurgiao" prefWidth="75.99995422363281" text="CIRURGIÃO" />
-      <TableColumn fx:id="setor" prefWidth="59.20001220703125" text="SETOR" />
-      <TableColumn fx:id="chSemanal" prefWidth="86.39996337890625" text="CHSEMANAL" />
-      <TableColumn fx:id="nome" prefWidth="56.79998779296875" text="NOME" />
-      <TableColumn fx:id="dataDeNascimento" prefWidth="145.60003662109375" text="DATA DE NASCIMENTO" />
-      <TableColumn fx:id="endereco" prefWidth="79.199951171875" text="ENDEREÇO" />
-      <TableColumn fx:id="genero" prefWidth="63.9998779296875" text="GENERO" />
-      <TableColumn fx:id="contato" prefWidth="82.4000244140625" text="CONTATO" />
-      <TableColumn fx:id="editar" prefWidth="75.0" text="EDITAR" />
-      <TableColumn fx:id="deletar" prefWidth="75.0" text="DELETAR" />
-  </columns>
-</TableView>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="376.0" prefWidth="996.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.provap2.ListController.ControllerListMedico">
+   <children>
+      <TableView fx:id="tableView" layoutX="-1.0" layoutY="57.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="318.0" prefWidth="995.0">
+         <columns>
+            <TableColumn fx:id="id" prefWidth="41.59997636079788" text="ID" />
+            <TableColumn fx:id="numeroCrm" prefWidth="96.79998397827148" text="NUMERO CRM" />
+            <TableColumn fx:id="areaEsp" prefWidth="62.4000244140625" text="ARÉA ESP" />
+            <TableColumn fx:id="cirurgiao" prefWidth="75.99995422363281" text="CIRURGIÃO" />
+            <TableColumn fx:id="setor" prefWidth="59.20001220703125" text="SETOR" />
+            <TableColumn fx:id="chSemanal" prefWidth="86.39996337890625" text="CHSEMANAL" />
+            <TableColumn fx:id="nome" prefWidth="56.79998779296875" text="NOME" />
+            <TableColumn fx:id="dataDeNascimento" prefWidth="145.60003662109375" text="DATA DE NASCIMENTO" />
+            <TableColumn fx:id="endereco" prefWidth="79.199951171875" text="ENDEREÇO" />
+            <TableColumn fx:id="genero" prefWidth="63.9998779296875" text="GENERO" />
+            <TableColumn fx:id="contato" prefWidth="82.4000244140625" text="CONTATO" />
+            <TableColumn fx:id="editar" prefWidth="75.0" text="EDITAR" />
+            <TableColumn fx:id="deletar" prefWidth="75.0" text="DELETAR" />
+         </columns>
+      </TableView>
+      <TextField fx:id="txtPesquisa" layoutX="124.0" layoutY="21.0" prefHeight="25.0" prefWidth="192.0" />
+      <Label layoutX="14.0" layoutY="25.0" text="PESQUISAR NOME:" />
+   </children>
+</Pane>
