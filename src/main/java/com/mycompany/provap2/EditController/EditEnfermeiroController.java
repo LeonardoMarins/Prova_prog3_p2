@@ -126,6 +126,17 @@ public class EditEnfermeiroController {
             }
         }); 
         
+         if (!listEndereco.isEmpty()) {
+            Endereco enderecoParaEditar = null;
+            for (Endereco endereco : MenuBack.listaEndereco) {
+            if (endereco.getRua().equals(enfermeiro.getEndereco().getRua())) {
+                enderecoParaEditar = endereco;
+            }
+            
+           }
+            txtEndereco.setValue(enderecoParaEditar);
+           
+         }
         
     }
 

@@ -105,6 +105,28 @@ public class EditConsultaController {
             }
         });
         
+        // Seleciona o paciente cadastrado
+        if (!listPaciente.isEmpty()) {
+            Paciente pacienteParaEditar = null;
+            for (Paciente paciente : MenuBack.listaDePaciente) {
+            if (paciente.getIdPaciente().equals(consulta.getIdPaciente())) {
+                pacienteParaEditar = paciente;
+            }
+            
+           }
+            txtPacienteEdit.setValue(pacienteParaEditar);
+        }
+        
+        if (!listMedico.isEmpty()) {
+            Medico MedicoParaEditar = null;
+            for (Medico medico : MenuBack.listaDeMedicos) {
+            if (medico.getIdMedico().equals(consulta.getIdMedico())) {
+                MedicoParaEditar = medico;
+            }
+            
+           }
+            txtMedicoEdit.setValue(MedicoParaEditar);
+        }
         
     }
 

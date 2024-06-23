@@ -135,7 +135,17 @@ public class EditMedicoController {
             }
         }); 
         
-        
+        if (!listEndereco.isEmpty()) {
+            Endereco enderecoParaEditar = null;
+            for (Endereco endereco : MenuBack.listaEndereco) {
+            if (endereco.getRua().equals(medico.getEndereco().getRua())) {
+                enderecoParaEditar = endereco;
+            }
+            
+           }
+            txtEndereco.setValue(enderecoParaEditar);
+           
+         }
     }
 
     @FXML

@@ -47,7 +47,7 @@ public class ControllerCadConsulta {
     @FXML
     public CheckBox nao;
     
-     private List<Paciente> listPaciente = new ArrayList<>();
+    private List<Paciente> listPaciente = new ArrayList<>();
     
     private ObservableList<Paciente> obsPaciente;
     
@@ -99,6 +99,16 @@ public class ControllerCadConsulta {
                 return null;
             }
         });
+        
+        // Definir valor padrão para ComboBox de paciente (o primeiro item da lista, se disponível)
+        if (!listPaciente.isEmpty()) {
+            txtPaciente.setValue(listPaciente.get(0));
+        }
+        
+        // Definir valor padrão para ComboBox de Medico (o primeiro item da lista, se disponível)
+        if (!listMedico.isEmpty()) {
+            txtMedico.setValue(listMedico.get(0));
+        }
         
     }
 

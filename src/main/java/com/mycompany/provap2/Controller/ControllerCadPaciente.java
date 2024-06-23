@@ -133,6 +133,11 @@ public class ControllerCadPaciente {
             }
         });
         
+        // Definir valor padrão para ComboBox de Endereço (o primeiro item da lista, se disponível)
+        if (!listEndereco.isEmpty()) {
+            txtEndereco.setValue(listEndereco.get(0));
+        }
+        
         
         txtDataDeCadastro.setText(dataCadastro);       
     }

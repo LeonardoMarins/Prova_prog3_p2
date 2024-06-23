@@ -6,18 +6,15 @@ package com.mycompany.provap2.EditController;
 
 import com.mycompany.provap2.backend.Endereco;
 import com.mycompany.provap2.backend.Genero;
-import com.mycompany.provap2.backend.Medico;
 import com.mycompany.provap2.backend.MenuBack;
 import com.mycompany.provap2.backend.Paciente;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -143,7 +140,17 @@ public class EditPacienteController {
             }
         }); 
         
-        
+        if (!listEndereco.isEmpty()) {
+            Endereco enderecoParaEditar = null;
+            for (Endereco endereco : MenuBack.listaEndereco) {
+            if (endereco.getRua().equals(paciente.getEndereco().getRua())) {
+                enderecoParaEditar = endereco;
+            }
+            
+           }
+            txtEndereco.setValue(enderecoParaEditar);
+           
+         }
     }
 
     @FXML
