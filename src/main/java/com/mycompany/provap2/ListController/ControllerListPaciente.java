@@ -14,6 +14,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,6 +24,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -33,6 +35,8 @@ import javafx.util.Callback;
  */
 public class ControllerListPaciente {
     
+    @FXML
+    private TextField txtPesquisa;
     @FXML
     private TableView<Paciente> tableView;
      
@@ -112,7 +116,18 @@ public class ControllerListPaciente {
         
         addButtonDeleteToTable();
 
-        tableView.setItems(list);
+        FilteredList<Paciente> filteredData = new FilteredList<>(list, p -> true);
+        tableView.setItems(filteredData);
+
+        txtPesquisa.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(paciente -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+                String lowerCaseFilter = newValue.toLowerCase();
+                return paciente.getNomePessoal().toLowerCase().contains(lowerCaseFilter); // filtra por nome
+            });
+        });
     }
     
     
@@ -200,7 +215,7 @@ private void addButtonDeleteToTable() {
     };
 
     deletar.setCellFactory(cellFactory);
-}
+    }
     
 }
 
