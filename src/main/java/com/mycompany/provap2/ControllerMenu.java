@@ -43,28 +43,6 @@ public class ControllerMenu {
     }
     
     @FXML
-    public void openCadastraResponsavel() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("responsavel/CadResponsavel.fxml"));
-        Parent root = fxmlLoader.load();
-        
-        Stage stage = new Stage();
-        stage.setTitle("Cadastra Responsavel");
-        stage.setScene(new Scene(root));
-        stage.show(); 
-    }
-    
-    @FXML
-    public void openListResponsavel() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("responsavel/ListResponsavel.fxml"));
-        Parent root = fxmlLoader.load();
-        
-        Stage stage = new Stage();
-        stage.setTitle("Lista Responsavel");
-        stage.setScene(new Scene(root));
-        stage.show(); 
-    }
-    
-    @FXML
     public void openCadastraPaciente() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("paciente/CadPaciente.fxml"));
         Parent root = fxmlLoader.load();
@@ -79,11 +57,11 @@ public class ControllerMenu {
     public void openListPaciente() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("paciente/ListPaciente.fxml"));
         Parent root = fxmlLoader.load();
-        
+
         Stage stage = new Stage();
         stage.setTitle("Lista Paciente");
         stage.setScene(new Scene(root));
-        stage.show(); 
+        stage.show();
     }
     
     @FXML
