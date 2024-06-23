@@ -24,6 +24,10 @@ public class ContatoTelEmail {
         }
     }
     
+    public ContatoTelEmail() {
+        
+    }
+    
     public Long getTelefone() {
         return this.telefone;
     }

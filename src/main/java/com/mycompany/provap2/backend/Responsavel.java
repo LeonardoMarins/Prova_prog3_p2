@@ -29,6 +29,10 @@ public class Responsavel extends ContatoTelEmail {
         }
     }
     
+    public Responsavel() {
+        
+    }
+    
     public Long getIdResponsavel() {
         return idResponsavel;
     }

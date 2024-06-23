@@ -1,2 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<consultasWrapper/>
+<consultasWrapper>
+    <consultas>
+        <diagnostico>awdwadaw</diagnostico>
+        <exameQueixa>wadawdawd</exameQueixa>
+        <idConsulta>0aabb49f-1f2e-488d-9cf0-dc959052b935</idConsulta>
+        <idMedico>d39105ca-5010-44ca-b08d-13382502a46f</idMedico>
+        <idPaciente>179da6e1-e180-4978-9781-5b2cab6ce16c</idPaciente>
+        <indicacaoCirurgica>true</indicacaoCirurgica>
+        <prescricao>awdadawd</prescricao>
+    </consultas>
+</consultasWrapper>

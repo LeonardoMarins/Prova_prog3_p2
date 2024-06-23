@@ -1,2 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<medicosWrapper/>
+<medicosWrapper>
+    <medicos>
+        <contato>
+            <celular>12313</celular>
+            <email>awdawdaw</email>
+            <telefone>213131</telefone>
+        </contato>
+        <dataNascimento>13/09/2002</dataNascimento>
+        <endereco>
+            <bairro>awdawd</bairro>
+            <cep>12313</cep>
+            <cidade>awdaw</cidade>
+            <estado>wadad</estado>
+            <numero>23213123</numero>
+            <rua>awdadaw</rua>
+        </endereco>
+        <genero>F</genero>
+        <nomePessoal>adawdad</nomePessoal>
+        <chSemanal>213131</chSemanal>
+        <setor>awdadaw</setor>
+        <areasEspecialidade>awdawda</areasEspecialidade>
+        <cirurgiao>true</cirurgiao>
+        <idMedico>d39105ca-5010-44ca-b08d-13382502a46f</idMedico>
+        <numeroCRM>123131</numeroCRM>
+    </medicos>
+</medicosWrapper>

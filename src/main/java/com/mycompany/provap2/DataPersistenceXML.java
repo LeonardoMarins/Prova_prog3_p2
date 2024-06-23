@@ -12,7 +12,6 @@ import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.Unmarshaller;
-import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import java.io.File;
 import java.util.List;
@@ -75,20 +74,20 @@ public class DataPersistenceXML {
         return wrapper.getConsultas();
     }
     
-    public static List<Medico> importFromXMLMedico(String filePath) throws JAXBException {
-        JAXBContext context = JAXBContext.newInstance(MedicosWrapper.class);
-        Unmarshaller unmarshaller = context.createUnmarshaller();
-
-        MedicosWrapper wrapper = (MedicosWrapper) unmarshaller.unmarshal(new File(filePath));
-        return wrapper.getMedicos();
-    }
-    
     public static List<Paciente> importFromXMLPaciente(String filePath) throws JAXBException {
         JAXBContext context = JAXBContext.newInstance(PacientesWrapper.class);
         Unmarshaller unmarshaller = context.createUnmarshaller();
 
         PacientesWrapper wrapper = (PacientesWrapper) unmarshaller.unmarshal(new File(filePath));
         return wrapper.getPaciente();
+    }
+
+    public static List<Medico> importFromXMLMedico(String filePath) throws JAXBException {
+        JAXBContext context = JAXBContext.newInstance(MedicosWrapper.class);
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+
+        MedicosWrapper wrapper = (MedicosWrapper) unmarshaller.unmarshal(new File(filePath));
+        return wrapper.getMedicos();
     }
     
     public static List<Enfermeiro> importFromXMLEnfermeiro(String filePath) throws JAXBException {

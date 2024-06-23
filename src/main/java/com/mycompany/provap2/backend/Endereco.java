@@ -31,6 +31,10 @@ public class Endereco {
         }
     }
     
+    public Endereco() {
+        
+    }
+    
      public String getRua() {
         return rua;
     }
