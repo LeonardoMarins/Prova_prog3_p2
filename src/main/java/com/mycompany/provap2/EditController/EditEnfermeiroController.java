@@ -7,7 +7,6 @@ package com.mycompany.provap2.EditController;
 import com.mycompany.provap2.backend.Endereco;
 import com.mycompany.provap2.backend.Enfermeiro;
 import com.mycompany.provap2.backend.Genero;
-import com.mycompany.provap2.backend.Medico;
 import com.mycompany.provap2.backend.MenuBack;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -74,11 +73,12 @@ public class EditEnfermeiroController {
     
      public void setConsultaData(Enfermeiro enfermeiro) {
         this.enfermeiro = enfermeiro;
+        SimpleDateFormat formata = new SimpleDateFormat("dd/MM/yyyy");
         
         txtSetor.setText(enfermeiro.getSetor());
         txtChSemanal.setText(String.valueOf(enfermeiro.getChSemanal()));
         txtNome.setText(enfermeiro.getNomePessoal()); 
-        txtDataDeNascimento.setText(enfermeiro.getDataNascimento().toString());
+        txtDataDeNascimento.setText(formata.format(enfermeiro.getDataNascimento()));
         txtTelefone.setText(String.valueOf(enfermeiro.getContato().getTelefone())); 
         txtCelular.setText(String.valueOf(enfermeiro.getContato().getCelular()));
         txtEmail.setText(enfermeiro.getContato().getEmail());

@@ -80,12 +80,14 @@ public class EditMedicoController {
     
      public void setConsultaData(Medico medico) {
         this.medico = medico;
+        SimpleDateFormat formata = new SimpleDateFormat("dd/MM/yyyy");
+        
         txtCrm.setText(String.valueOf(medico.getNumeroCRM()));
         txtAreaEspecifica.setText(medico.getAreasEspecialidade());
         txtSetor.setText(medico.getSetor());
         txtChSemanal.setText(String.valueOf(medico.getChSemanal()));
         txtNome.setText(medico.getNomePessoal()); 
-        txtDataDeNascimento.setText(medico.getDataNascimento().toString());
+        txtDataDeNascimento.setText(formata.format(medico.getDataNascimento()));
         txtTelefone.setText(String.valueOf(medico.getContato().getTelefone())); 
         txtCelular.setText(String.valueOf(medico.getContato().getCelular()));
         txtEmail.setText(medico.getContato().getEmail());
