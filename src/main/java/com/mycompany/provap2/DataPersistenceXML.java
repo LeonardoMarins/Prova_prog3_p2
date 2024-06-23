@@ -79,7 +79,7 @@ public class DataPersistenceXML {
         Unmarshaller unmarshaller = context.createUnmarshaller();
 
         PacientesWrapper wrapper = (PacientesWrapper) unmarshaller.unmarshal(new File(filePath));
-        return wrapper.getPaciente();
+        return wrapper.getPacientes();
     }
 
     public static List<Medico> importFromXMLMedico(String filePath) throws JAXBException {
@@ -95,7 +95,7 @@ public class DataPersistenceXML {
         Unmarshaller unmarshaller = context.createUnmarshaller();
 
         EnfermeirosWrapper wrapper = (EnfermeirosWrapper) unmarshaller.unmarshal(new File(filePath));
-        return wrapper.getEnfermeiro();
+        return wrapper.getEnfermeiros();
     }
 
     // Classe wrapper para contornar limitações do JAXB
@@ -117,7 +117,7 @@ public class DataPersistenceXML {
     public static class PacientesWrapper {
         private List<Paciente> pacientes;
 
-        public List<Paciente> getPaciente() {
+        public List<Paciente> getPacientes() {
             return pacientes;
         }
 
@@ -131,7 +131,7 @@ public class DataPersistenceXML {
     public static class EnfermeirosWrapper {
         private List<Enfermeiro> enfermeiros;
 
-        public List<Enfermeiro> getEnfermeiro() {
+        public List<Enfermeiro> getEnfermeiros() {
             return enfermeiros;
         }
 

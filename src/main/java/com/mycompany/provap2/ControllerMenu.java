@@ -205,9 +205,9 @@ public class ControllerMenu {
     public void exportarXML() {
         try {
             MenuBack.exportToXMLConsulta("consultas.xml");
-            MenuBack.exportToXMLMedico("pacientes.xml");
-            MenuBack.exportToXMLPaciente("enfermeiros.xml");
-            MenuBack.exportToXMLEnfermeiro("medicos.xml");
+            MenuBack.exportToXMLPaciente("pacientes.xml");
+            MenuBack.exportToXMLMedico("medicos.xml");
+            MenuBack.exportToXMLEnfermeiro("enfermeiros.xml");
             javax.swing.JOptionPane.showMessageDialog(null, "Exportado para XML com sucesso");
         } catch (JAXBException e) {
             e.printStackTrace();

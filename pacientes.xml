@@ -1,27 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<medicosWrapper>
-    <medicos>
+<pacientesWrapper>
+    <pacientes>
         <contato>
-            <celular>12313</celular>
-            <email>awdawdaw</email>
-            <telefone>213131</telefone>
+            <celular>123123</celular>
+            <email>wdawdaw</email>
+            <telefone>231313</telefone>
         </contato>
         <dataNascimento>13/09/2002</dataNascimento>
         <endereco>
             <bairro>awdawd</bairro>
-            <cep>12313</cep>
-            <cidade>awdaw</cidade>
-            <estado>wadad</estado>
-            <numero>23213123</numero>
-            <rua>awdadaw</rua>
+            <cep>213131</cep>
+            <cidade>awdawdaw</cidade>
+            <estado>awdawdaw</estado>
+            <numero>21312312</numero>
+            <rua>wadawdawd</rua>
         </endereco>
         <genero>F</genero>
-        <nomePessoal>adawdad</nomePessoal>
-        <chSemanal>213131</chSemanal>
-        <setor>awdadaw</setor>
-        <areasEspecialidade>awdawda</areasEspecialidade>
-        <cirurgiao>true</cirurgiao>
-        <idMedico>d39105ca-5010-44ca-b08d-13382502a46f</idMedico>
-        <numeroCRM>123131</numeroCRM>
-    </medicos>
-</medicosWrapper>
+        <nomePessoal>awdawdawd</nomePessoal>
+        <dataCadastro>23 Jun 2024 17:07:42 GMT</dataCadastro>
+        <idPaciente>8d031459-0ab1-4134-91bf-6cb1c50214af</idPaciente>
+        <idade>22</idade>
+        <obsGeral>awdawdawd</obsGeral>
+        <responsavel>
+            <celular>1231313</celular>
+            <email>awdadad</email>
+            <telefone>2313123</telefone>
+            <idResponsavel>1</idResponsavel>
+            <nomeResponsavel>wadadawd</nomeResponsavel>
+        </responsavel>
+        <responsavelNome>wadadawd</responsavelNome>
+    </pacientes>
+</pacientesWrapper>

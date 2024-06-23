@@ -89,16 +89,16 @@ public class MenuBack {
         DataPersistenceXML.exportToXMLConsulta(listaDeConsultaMedica, filePath);
     }
     
+    public static void exportToXMLPaciente(String filePath) throws JAXBException {
+        DataPersistenceXML.exportToXMLPaciente(listaDePaciente, filePath);
+    }
+    
     public static void exportToXMLMedico(String filePath) throws JAXBException {
         DataPersistenceXML.exportToXMLMedico(listaDeMedicos, filePath);
     }
     
     public static void exportToXMLEnfermeiro(String filePath) throws JAXBException {
         DataPersistenceXML.exportToXMLEnfermeiro(listaDeEnfermeiros, filePath);
-    }
-    
-    public static void exportToXMLPaciente(String filePath) throws JAXBException {
-        DataPersistenceXML.exportToXMLPaciente(listaDePaciente, filePath);
     }
     
     public static void importFromXMLConsulta(String filePath) throws JAXBException {
