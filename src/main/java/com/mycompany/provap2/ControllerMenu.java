@@ -176,7 +176,10 @@ public class ControllerMenu {
     @FXML
     public void exportarJSON() {
         try {
-            MenuBack.exportarParaJSON("consultas.json");
+            MenuBack.exportToJSONConsulta("consultas.json");
+            MenuBack.exportToJSONPaciente("pacientes.json");
+            MenuBack.exportToJSONEnfermeiro("enfermeiros.json");
+            MenuBack.exportToJSONMedico("medicos.json");
             javax.swing.JOptionPane.showMessageDialog(null, "Exportado para JSON com sucesso");
         } catch (IOException e) {
             e.printStackTrace();
@@ -187,7 +190,10 @@ public class ControllerMenu {
     @FXML
     public void importarJSON() {
         try {
-            MenuBack.importarDeJSON("consultas.json");
+            MenuBack.importFromJSONConsulta("consultas.json");
+            MenuBack.importFromJSONEnfermeiro("enfermeiros.json");
+            MenuBack.importFromJSONMedico("medicos.json");
+            MenuBack.importFromJSONPaciente("pacientes.json");
             javax.swing.JOptionPane.showMessageDialog(null, "Importado de JSON com sucesso");
         } catch (IOException e) {
             e.printStackTrace();

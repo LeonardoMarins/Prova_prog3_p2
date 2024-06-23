@@ -53,12 +53,36 @@ public class MenuBack {
     listaDeConsultaMedica.add(consulta);
     }
     
-     public static void exportarParaJSON(String filePath) throws IOException {
-        DataPersistenceJSON.exportToJSON(listaDeConsultaMedica, filePath);
+    public static void exportToJSONConsulta(String filePath) throws IOException {
+        DataPersistenceJSON.exportToJSONConsulta(listaDeConsultaMedica, filePath);
+    }
+    
+    public static void exportToJSONPaciente(String filePath) throws IOException {
+        DataPersistenceJSON.exportToJSONPaciente(listaDePaciente, filePath);
+    }
+    
+    public static void exportToJSONMedico(String filePath) throws IOException {
+        DataPersistenceJSON.exportToJSONMedico(listaDeMedicos, filePath);
+    }
+    
+    public static void exportToJSONEnfermeiro(String filePath) throws IOException {
+        DataPersistenceJSON.exportToJSONEnfermeiro(listaDeEnfermeiros, filePath);
     }
 
-    public static void importarDeJSON(String filePath) throws IOException {
-        listaDeConsultaMedica = (ArrayList<ConsultaMedica>) DataPersistenceJSON.importFromJSON(filePath);
+    public static void importFromJSONConsulta(String filePath) throws IOException {
+        listaDeConsultaMedica = (ArrayList<ConsultaMedica>) DataPersistenceJSON.importFromJSONConsulta(filePath);
+    }
+    
+    public static void importFromJSONMedico(String filePath) throws IOException {
+        listaDeMedicos = (ArrayList<Medico>) DataPersistenceJSON.importFromJSONMedico(filePath);
+    }
+    
+    public static void importFromJSONPaciente(String filePath) throws IOException {
+        listaDePaciente = (ArrayList<Paciente>) DataPersistenceJSON.importFromJSONPaciente(filePath);
+    }
+    
+    public static void importFromJSONEnfermeiro(String filePath) throws IOException {
+        listaDeEnfermeiros = (ArrayList<Enfermeiro>) DataPersistenceJSON.importFromJSONEnfermeiro(filePath);
     }
 
     public static void exportarParaXML(String filePath) throws JAXBException {
