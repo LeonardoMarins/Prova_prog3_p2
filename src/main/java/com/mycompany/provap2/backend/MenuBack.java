@@ -111,48 +111,56 @@ public class MenuBack {
         }
     }
 
+    //exporta apenas se tiver dados
     public static void exportToXMLConsulta(String filePath) throws JAXBException {
         if(!listaDeConsultaMedica.isEmpty()) {
              DataPersistenceXML.exportToXMLConsulta(listaDeConsultaMedica, filePath);
         }
     }
     
+    //exporta apenas se tiver dados
     public static void exportToXMLPaciente(String filePath) throws JAXBException {
         if(!listaDePaciente.isEmpty()) {
             DataPersistenceXML.exportToXMLPaciente(listaDePaciente, filePath);
         }
     }
     
+    //exporta apenas se tiver dados
     public static void exportToXMLMedico(String filePath) throws JAXBException {
         if(!listaDeMedicos.isEmpty()) {
             DataPersistenceXML.exportToXMLMedico(listaDeMedicos, filePath);
         }
     }
     
+    //exporta apenas se tiver dados
     public static void exportToXMLEnfermeiro(String filePath) throws JAXBException {
         if(!listaDeEnfermeiros.isEmpty()) {
             DataPersistenceXML.exportToXMLEnfermeiro(listaDeEnfermeiros, filePath);
         }
     }
     
+    //importa apenas para os arquivos que foram exportados com dados
     public static void importFromXMLConsulta(String filePath) throws JAXBException {
         if(Files.exists(Paths.get(filePath))) {
             listaDeConsultaMedica = (ArrayList<ConsultaMedica>) DataPersistenceXML.importFromXMLConsulta(filePath);
         }
     }
     
+    //importa apenas para os arquivos que foram exportados com dados
     public static void importFromXMLMedico(String filePath) throws JAXBException {
         if(Files.exists(Paths.get(filePath))) {
             listaDeMedicos = (ArrayList<Medico>) DataPersistenceXML.importFromXMLMedico(filePath);
         }
     }
     
+    //importa apenas para os arquivos que foram exportados com dados
     public static void importFromXMLEnfermeiro(String filePath) throws JAXBException {
         if(Files.exists(Paths.get(filePath))) {
             listaDeEnfermeiros = (ArrayList<Enfermeiro>) DataPersistenceXML.importFromXMLEnfermeiro(filePath);
         }
     }
     
+    //importa apenas para os arquivos que foram exportados com dados
     public static void importFromXMLPaciente(String filePath) throws JAXBException {
         if(Files.exists(Paths.get(filePath))) {
             listaDePaciente = (ArrayList<Paciente>) DataPersistenceXML.importFromXMLPaciente(filePath);

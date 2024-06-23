@@ -154,11 +154,17 @@ public class ControllerMenu {
     @FXML
     public void exportarJSON() {
         try {
-            MenuBack.exportToJSONConsulta("consultas.json");
-            MenuBack.exportToJSONPaciente("pacientes.json");
-            MenuBack.exportToJSONEnfermeiro("enfermeiros.json");
-            MenuBack.exportToJSONMedico("medicos.json");
-            javax.swing.JOptionPane.showMessageDialog(null, "Exportado para JSON com sucesso");
+            if(MenuBack.listaDeConsultaMedica.size() >= 1 || MenuBack.listaDeEnfermeiros.size() >= 1 ||
+                MenuBack.listaDeMedicos.size() >= 1 || MenuBack.listaDePaciente.size() >= 1) {
+                MenuBack.exportToJSONConsulta("consultas.json");
+                MenuBack.exportToJSONPaciente("pacientes.json");
+                MenuBack.exportToJSONEnfermeiro("enfermeiros.json");
+                MenuBack.exportToJSONMedico("medicos.json");
+                javax.swing.JOptionPane.showMessageDialog(null, "Exportado para XML com sucesso");               
+            }else {
+                javax.swing.JOptionPane.showMessageDialog(null, "Não tem dados de consulta, enfermeiros, medicos e pacientes para serem exportados.");
+            }
+            
         } catch (IOException e) {
             e.printStackTrace();
             javax.swing.JOptionPane.showMessageDialog(null, "Erro ao exportar para JSON");
@@ -182,11 +188,16 @@ public class ControllerMenu {
     @FXML
     public void exportarXML() {
         try {
-            MenuBack.exportToXMLConsulta("consultas.xml");
-            MenuBack.exportToXMLPaciente("pacientes.xml");
-            MenuBack.exportToXMLMedico("medicos.xml");
-            MenuBack.exportToXMLEnfermeiro("enfermeiros.xml");
-            javax.swing.JOptionPane.showMessageDialog(null, "Exportado para XML com sucesso");
+            if(MenuBack.listaDeConsultaMedica.size() >= 1 || MenuBack.listaDeEnfermeiros.size() >= 1 ||
+            MenuBack.listaDeMedicos.size() >= 1 || MenuBack.listaDePaciente.size() >= 1) {
+                MenuBack.exportToXMLConsulta("consultas.xml");
+                MenuBack.exportToXMLPaciente("pacientes.xml");
+                MenuBack.exportToXMLMedico("medicos.xml");
+                MenuBack.exportToXMLEnfermeiro("enfermeiros.xml");
+                javax.swing.JOptionPane.showMessageDialog(null, "Exportado para XML com sucesso");               
+            }else {
+                javax.swing.JOptionPane.showMessageDialog(null, "Não tem dados de consulta, enfermeiros, medicos e pacientes para serem exportados.");
+            }
         } catch (JAXBException e) {
             e.printStackTrace();
             javax.swing.JOptionPane.showMessageDialog(null, "Erro ao exportar para XML");

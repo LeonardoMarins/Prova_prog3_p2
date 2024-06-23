@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<pacientesWrapper>
+    <pacientes>
+        <contato>
+            <celular>123123</celular>
+            <email>awdawd</email>
+            <telefone>123123</telefone>
+        </contato>
+        <dataNascimento>13/09/2002</dataNascimento>
+        <endereco>
+            <bairro>wadawd</bairro>
+            <cep>123123</cep>
+            <cidade>awdawd</cidade>
+            <estado>awdawd</estado>
+            <numero>123123</numero>
+            <rua>awdawd</rua>
+        </endereco>
+        <genero>F</genero>
+        <nomePessoal>wadawd</nomePessoal>
+        <dataCadastro>23 Jun 2024 18:36:49 GMT</dataCadastro>
+        <idPaciente>4b3d4eff-cf09-4ce5-aa65-2cdcc7da6d8b</idPaciente>
+        <idade>21</idade>
+        <obsGeral>awdawda</obsGeral>
+        <responsavel>
+            <celular>12312331</celular>
+            <email>awwadad</email>
+            <telefone>12312312</telefone>
+            <idResponsavel>1</idResponsavel>
+            <nomeResponsavel>wadawd</nomeResponsavel>
+        </responsavel>
+        <responsavelNome>wadawd</responsavelNome>
+    </pacientes>
+</pacientesWrapper>
