@@ -7,7 +7,6 @@ package com.mycompany.provap2;
 import com.mycompany.provap2.backend.MenuBack;
 import jakarta.xml.bind.JAXBException;
 import java.io.IOException;
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -159,6 +158,16 @@ public class ControllerMenu {
          name = JOptionPane.showInputDialog("qual o nome do excel ?");
         try {
             excel.exportExcel(name);
+        } catch (IOException ex) {
+            ex.getMessage();
+        }
+    }
+    
+    @FXML
+    public void importarExcel() throws IOException {
+        ExcelController excel = new ExcelController();
+        try {
+            excel.importarExcel();
         } catch (IOException ex) {
             ex.getMessage();
         }

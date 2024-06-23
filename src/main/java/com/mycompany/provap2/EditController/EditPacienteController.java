@@ -81,14 +81,13 @@ public class EditPacienteController {
     
      public void setConsultaData(Paciente paciente) throws ParseException {
         this.paciente = paciente;
-        SimpleDateFormat formata = new SimpleDateFormat("dd/MM/yyyy");
         
         txtNome.setText(paciente.getNomePessoal());
         txtNomeResponsavel.setText(paciente.getResponsavelNome());
         txtTelefoneResponsavel.setText(String.valueOf(paciente.getResponsavel().getTelefone()));
         txtCelularResponsavel.setText(String.valueOf(paciente.getResponsavel().getCelular()));
         txtEmailDoResponsavel.setText(paciente.getResponsavel().getEmail()); 
-        txtDataDeNascimento.setText(formata.format(paciente.getDataNascimento()));
+        txtDataDeNascimento.setText(paciente.getDataNascimento());
         txtIdade.setText(String.valueOf(paciente.getIdade())); 
         txtDataDeCadastro.setText(paciente.getDataCadastro());
         txtObsGeral.setText(paciente.getObsGeral());
@@ -154,7 +153,7 @@ public class EditPacienteController {
     }
 
     @FXML
-    public void savePacienteEdit() throws ParseException {
+    public void savePacienteEdit() {
         try {
             paciente.setNomePessoal(txtNome.getText());
             paciente.setIdade(Integer.parseInt(txtIdade.getText()));
@@ -162,14 +161,11 @@ public class EditPacienteController {
             paciente.setResponsavelNome(txtNomeResponsavel.getText());
             paciente.setTelefoneResponsavel(Long.valueOf(txtTelefoneResponsavel.getText()));
             paciente.setCelularResponsavel(Long.valueOf(txtCelularResponsavel.getText()));
-            paciente.setEmailResponsavel(txtEmailDoResponsavel.getText()); 
-            SimpleDateFormat formata = new SimpleDateFormat("dd/MM/yyyy");  
-            paciente.setDataNascimento(formata.parse(txtDataDeNascimento.getText()));
+            paciente.setEmailResponsavel(txtEmailDoResponsavel.getText());   
+            paciente.setDataNascimento(txtDataDeNascimento.getText());
             paciente.setTelefone(Long.valueOf(txtTelefone.getText()));
             paciente.setCelular(Long.valueOf(txtCelular.getText()));
             paciente.setEmail(txtEmail.getText());
-            }catch(ParseException e ) {
-                JOptionPane.showMessageDialog(null, "o formato da data deve ser ex: 12/12/2002");
             }catch(NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "o número do CRM ultrapassou o limite de caracter");
             }catch(Exception e) {

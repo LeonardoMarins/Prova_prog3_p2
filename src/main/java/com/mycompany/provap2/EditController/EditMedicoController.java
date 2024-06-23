@@ -8,7 +8,6 @@ import com.mycompany.provap2.backend.Endereco;
 import com.mycompany.provap2.backend.Genero;
 import com.mycompany.provap2.backend.Medico;
 import com.mycompany.provap2.backend.MenuBack;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -80,14 +79,13 @@ public class EditMedicoController {
     
      public void setConsultaData(Medico medico) {
         this.medico = medico;
-        SimpleDateFormat formata = new SimpleDateFormat("dd/MM/yyyy");
         
         txtCrm.setText(String.valueOf(medico.getNumeroCRM()));
         txtAreaEspecifica.setText(medico.getAreasEspecialidade());
         txtSetor.setText(medico.getSetor());
         txtChSemanal.setText(String.valueOf(medico.getChSemanal()));
         txtNome.setText(medico.getNomePessoal()); 
-        txtDataDeNascimento.setText(formata.format(medico.getDataNascimento()));
+        txtDataDeNascimento.setText(medico.getDataNascimento());
         txtTelefone.setText(String.valueOf(medico.getContato().getTelefone())); 
         txtCelular.setText(String.valueOf(medico.getContato().getCelular()));
         txtEmail.setText(medico.getContato().getEmail());
@@ -149,20 +147,17 @@ public class EditMedicoController {
     }
 
     @FXML
-    public void saveMedicoEdit() throws ParseException {
+    public void saveMedicoEdit() {
         try {
         medico.setNumeroCRM(Integer.parseInt(txtCrm.getText()));
         medico.setAreasEspecialidade(txtAreaEspecifica.getText());
         medico.setSetor(txtSetor.getText());
         medico.setChSemanal(Integer.parseInt(txtChSemanal.getText()));
         medico.setNomePessoal(txtNome.getText()); 
-        SimpleDateFormat formata = new SimpleDateFormat("dd/MM/yyyy");  
-        medico.setDataNascimento(formata.parse(txtDataDeNascimento.getText()));
+        medico.setDataNascimento(txtDataDeNascimento.getText());
         medico.setTelefone(Long.valueOf(txtTelefone.getText()));
         medico.setCelular(Long.valueOf(txtCelular.getText()));
         medico.setEmail(txtEmail.getText());
-        }catch(ParseException e ) {
-            JOptionPane.showMessageDialog(null, "o formato da data deve ser ex: 12/12/2002");
         }catch(NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "o número do CRM ultrapassou o limite de caracter");
         }catch(Exception e) {

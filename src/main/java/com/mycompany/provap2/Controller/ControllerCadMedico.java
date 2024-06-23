@@ -155,10 +155,8 @@ public class ControllerCadMedico {
        String chsemanal = txtChSemanal.getText();
        
        String nome = txtNome.getText();
-       
-       SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
-       String dataNascimento = txtDataDeNascimento.getText();
-       Date dataNascimentoD = formatoData.parse(dataNascimento);
+
+       String dataNascimentoD = txtDataDeNascimento.getText();
        
        Endereco enderecoSelecionado = txtEndereco.getValue();
             
@@ -220,8 +218,6 @@ public class ControllerCadMedico {
 
             System.out.println(medico.getIdMedico());
         }
-       }catch(ParseException ex) {
-           JOptionPane.showMessageDialog(null, "A data de nascimento não pode ser vazia exemplo: 12/09/1998");
        }catch(NumberFormatException exs) {
            JOptionPane.showMessageDialog(null, "o numero de CRM e o chSemanal não podem ser vazios"
                    + " para o cadastro do medico e não devem conter letras");

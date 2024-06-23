@@ -11,10 +11,8 @@ import com.mycompany.provap2.backend.Endereco;
 import com.mycompany.provap2.backend.Enfermeiro;
 import com.mycompany.provap2.backend.Genero;
 import com.mycompany.provap2.backend.MenuBack;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -141,9 +139,7 @@ public class ControllerCadEnfermeiro {
        String chsemanal = txtChSemanal.getText();
        String nome = txtNome.getText();
        
-       SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
-       String dataNascimento = txtDataDeNascimento.getText();
-       Date dataNascimentoD = formatoData.parse(dataNascimento);
+       String dataNascimentoD = txtDataDeNascimento.getText();
        
        Endereco enderecoSelecionado = txtEndereco.getValue();
             
@@ -205,8 +201,6 @@ public class ControllerCadEnfermeiro {
             stage.close();
             System.out.println(enfermeiro.getGenero());
         }
-       }catch(ParseException ex) {
-           JOptionPane.showMessageDialog(null, "A data de nascimento não pode ser vazia exemplo: 12/09/1998");
        }catch(NumberFormatException exs) {
            JOptionPane.showMessageDialog(null, "o chSemanal não podem ser vazios"
                    + " para o cadastro do enfermeiro");

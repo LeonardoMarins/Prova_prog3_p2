@@ -12,12 +12,12 @@ import java.util.Date;
  */
 public class DadoPessoal {
     protected String nomePessoal;
-    protected Date dataNascimento;
+    protected String dataNascimento;
     protected Endereco endereco;
     protected ContatoTelEmail contato;
     protected Genero genero;
     
-    public DadoPessoal(String nome, Date dataNascimento, Endereco end, ContatoTelEmail contato,
+    public DadoPessoal(String nome, String dataNascimento, Endereco end, ContatoTelEmail contato,
             Genero genero) {
         this.nomePessoal = nome;
         this.dataNascimento = dataNascimento;
@@ -47,14 +47,14 @@ public class DadoPessoal {
     /**
      * @return the dataNascimento
      */
-    public Date getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
     /**
      * @param dataNascimento the dataNascimento to set
      */
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 

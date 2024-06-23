@@ -14,8 +14,6 @@ import com.mycompany.provap2.backend.Responsavel;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -99,7 +97,7 @@ public class ExcelController {
             Cell cell1 = row.createCell(0);
             cell1.setCellValue(MenuBack.listaDePaciente.get(i).getNomePessoal());
             Cell cell2 = row.createCell(2); 
-            cell2.setCellValue(MenuBack.listaDePaciente.get(i).getDataNascimento().toString());
+            cell2.setCellValue(MenuBack.listaDePaciente.get(i).getDataNascimento());
             Cell cell5 = row.createCell(4); 
             cell5.setCellValue(MenuBack.listaDePaciente.get(i).getIdade());
             Cell cell6 = row.createCell(6); 
@@ -326,91 +324,130 @@ public class ExcelController {
         }
     }
 }
-      public void importarExcel() throws IOException {
-    JFileChooser fileChooser = new JFileChooser();
-    fileChooser.setDialogTitle("Selecione o arquivo Excel");
-    fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-    fileChooser.setFileFilter(new FileNameExtensionFilter("Arquivos Excel (*.xlsx)", "xlsx"));
 
-    int result = fileChooser.showOpenDialog(null);
-    if (result == JFileChooser.APPROVE_OPTION) {
-        String filePath = fileChooser.getSelectedFile().getAbsolutePath();
-        try (FileInputStream fis = new FileInputStream(filePath);
-             Workbook workbook = new XSSFWorkbook(fis)) {
+   public void importarExcel() throws IOException {
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Selecione o arquivo Excel");
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        fileChooser.setFileFilter(new FileNameExtensionFilter("Arquivos Excel (*.xlsx)", "xlsx"));
 
-            
-            Sheet sheet = workbook.getSheet("paciente");
-            if (sheet != null) {
-                
-                for (Row row : sheet) {
-                    
-                    String nomePessoal = row.getCell(0).getStringCellValue();
-                   String dataNascimentoStr = row.getCell(2).getStringCellValue();
-                   Date dataNascimento = null;
-                    Cell dataNascimentoCell = row.getCell(2);
-            if (dataNascimentoCell != null && dataNascimentoCell.getCellType() == CellType.STRING) {
-                    dataNascimentoStr = dataNascimentoCell.getStringCellValue();
-            if (!dataNascimentoStr.isEmpty()) {
-                try {
-                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                    dataNascimento = sdf.parse(dataNascimentoStr);
-                } catch (ParseException e) {
-                    e.printStackTrace();
-            }
-        }
-    }
-                    String obsGeral = row.getCell(8).getStringCellValue();
-                    String nomeResponsavel = row.getCell(10).getStringCellValue();
-                    String rua = row.getCell(12).getStringCellValue();
-                    String numero = row.getCell(14).getStringCellValue();
-                    Cell numeroCell = row.getCell(14);
-                    int numeroI = 0;
-            if (numeroCell != null && numeroCell.getCellType() == CellType.STRING) {
-                String numeroStr = numeroCell.getStringCellValue();
-            if (!numeroStr.isEmpty()) {
-                try {
-                    numeroI = Integer.parseInt(numeroStr);
-                } catch (NumberFormatException e) {
-                    e.printStackTrace();
-            }
-        }
-    }
-                    
-                    String idade = row.getCell(4).getStringCellValue();
-                    int idadeI = Integer.parseInt(idade);
-                    String estado = row.getCell(16).getStringCellValue();
-                    String cidade = row.getCell(18).getStringCellValue();
-                    String cep = row.getCell(20).getStringCellValue();
-                    int cepI = Integer.parseInt(cep);
-                    String bairro = row.getCell(22).getStringCellValue();
-                    String celular = row.getCell(24).getStringCellValue();
-                    Long celularI = Long.valueOf(celular);
-                    String telefone = row.getCell(26).getStringCellValue();
-                    Long telefoneI = Long.valueOf(telefone);
-                    String email = row.getCell(28).getStringCellValue();
-                    
-                    Endereco end = new Endereco(rua, numeroI, bairro, cidade, estado, cepI);
-                    ContatoTelEmail cont = new ContatoTelEmail(telefoneI, celularI, email);
-                    
-                    Date dataAtual = new Date();
-                    String dataCadastro = dataAtual.toGMTString();
-                    
-                    DadoPessoal dado = new DadoPessoal(nomePessoal, dataNascimento, end, cont, Genero.M);
-                    Responsavel respo = new Responsavel(nomeResponsavel, cont);
-                    
-                    Paciente paciente = new Paciente(dado,idadeI,dataCadastro, "", respo);
-                    
+        int result = fileChooser.showOpenDialog(null);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            String filePath = fileChooser.getSelectedFile().getAbsolutePath();
+            try (FileInputStream fis = new FileInputStream(filePath);
+                 Workbook workbook = new XSSFWorkbook(fis)) {
 
-                    // Crie um novo objeto Paciente com os dados
+                Sheet sheet = workbook.getSheet("paciente");
+                if (sheet != null) {
+                    // Comece a partir da linha 1 para pular o cabeçalho
+                for (int i = 1; i <= sheet.getLastRowNum(); i++) {
+                    Row row = sheet.getRow(i);
+                    if (row != null) {
+                        try {
+                            // Nome Pessoal
+                            String nomePessoal = getStringCellValue(row.getCell(0));
 
-                    // Adicione o paciente à lista de pacientes
-                    MenuBack.listaDePaciente.add(paciente);
+                            // Data de Nascimento
+                            String dataNascimento = getStringCellValue(row.getCell(2));
+
+                            // Idade
+                            int idadeI = getIntCellValue(row.getCell(4));
+
+                            // Número
+                            int numeroI = getIntCellValue(row.getCell(14));
+
+                            // Celular
+                            Long celularI = getLongCellValue(row.getCell(24));
+                            celularI = celularI != null ? celularI : 123L; // Valor padrão
+
+                            // Telefone
+                            Long telefoneI = getLongCellValue(row.getCell(26));
+                            telefoneI = telefoneI != null ? telefoneI : 123L; // Valor padrão
+
+                            // Rua
+                            String ruaI = getStringCellValue(row.getCell(12));
+
+                            // Bairro
+                            String bairroI = getStringCellValue(row.getCell(22));
+
+                            // Cidade
+                            String cidadeI = getStringCellValue(row.getCell(18));
+
+                            // Estado
+                            String estadoI = getStringCellValue(row.getCell(16));
+
+                            // CEP
+                            Integer cepI = getIntCellValue(row.getCell(20));
+
+                            // Email
+                            String emailI = getStringCellValue(row.getCell(28));
+
+                            // Nome Responsável
+                            String nomeResponsavelI = getStringCellValue(row.getCell(10));
+
+                            // Demais seções de código para atributos do paciente
+
+                            Endereco end = new Endereco(ruaI, numeroI, bairroI, cidadeI, estadoI, cepI);
+                            ContatoTelEmail cont = new ContatoTelEmail(telefoneI, celularI, emailI);
+
+                            Date dataAtual = new Date();
+                            String dataCadastro = dataAtual.toGMTString();
+
+                            DadoPessoal dado = new DadoPessoal(nomePessoal, dataNascimento, end, cont, Genero.M);
+                            Responsavel respo = new Responsavel(nomeResponsavelI, cont);
+
+                            Paciente paciente = new Paciente(dado, idadeI, dataCadastro, "", respo);
+
+                            MenuBack.listaDePaciente.add(paciente);
+                        } catch (NumberFormatException e) {
+                            e.printStackTrace(); // Você pode tratar o erro de forma adequada aqui
+                        }
+                    }
                 }
             } else {
-                
                 JOptionPane.showMessageDialog(null, "A aba 'paciente' não foi encontrada no arquivo Excel.", "Erro", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
-}
-}
+    }
+
+    private String getStringCellValue(Cell cell) {
+        if (cell == null) {
+            return "";
+        }
+        return cell.getCellType() == CellType.STRING ? cell.getStringCellValue().trim() : "";
+    }
+
+    private int getIntCellValue(Cell cell) {
+        if (cell == null) {
+            return 0;
+        }
+        if (cell.getCellType() == CellType.STRING) {
+            try {
+                return Integer.parseInt(cell.getStringCellValue().trim());
+            } catch (NumberFormatException e) {
+                return 0;
+            }
+        } else if (cell.getCellType() == CellType.NUMERIC) {
+            return (int) cell.getNumericCellValue();
+        }
+        return 0;
+    }
+
+    private Long getLongCellValue(Cell cell) {
+        if (cell == null) {
+            return null;
+        }
+        if (cell.getCellType() == CellType.STRING) {
+            try {
+                return Long.parseLong(cell.getStringCellValue().trim());
+            } catch (NumberFormatException e) {
+                return null;
+            }
+        } else if (cell.getCellType() == CellType.NUMERIC) {
+            return (long) cell.getNumericCellValue();
+        }
+        return null;
+    }
+}     
+

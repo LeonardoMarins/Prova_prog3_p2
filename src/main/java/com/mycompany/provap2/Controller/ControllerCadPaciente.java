@@ -156,9 +156,7 @@ public class ControllerCadPaciente {
             
            String nome = txtNome.getText();
            
-           SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
-           String dataNascimento = txtDataDeNascimento.getText();
-           Date dataNascimentoD = formatoData.parse(dataNascimento);
+           String dataNascimentoD = txtDataDeNascimento.getText();
             
            String telefone = txtTelefone.getText();
            long telefoneL = Long.parseLong(telefone);
@@ -216,9 +214,6 @@ public class ControllerCadPaciente {
             ex.getMessage();
             JOptionPane.showMessageDialog(null, "o contatoTelEmail deve ser cadastrado antes "
                     + "para conseguir cadastrar um responsavel");
-        }catch(IllegalArgumentException exs) {
-            exs.getMessage();
-            JOptionPane.showMessageDialog(null, "o campo de nome do responsavel não pode ser vazio");
         }
     }
 }

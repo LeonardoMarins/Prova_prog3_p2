@@ -8,7 +8,6 @@ import com.mycompany.provap2.backend.Endereco;
 import com.mycompany.provap2.backend.Enfermeiro;
 import com.mycompany.provap2.backend.Genero;
 import com.mycompany.provap2.backend.MenuBack;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -73,12 +72,11 @@ public class EditEnfermeiroController {
     
      public void setConsultaData(Enfermeiro enfermeiro) {
         this.enfermeiro = enfermeiro;
-        SimpleDateFormat formata = new SimpleDateFormat("dd/MM/yyyy");
         
         txtSetor.setText(enfermeiro.getSetor());
         txtChSemanal.setText(String.valueOf(enfermeiro.getChSemanal()));
         txtNome.setText(enfermeiro.getNomePessoal()); 
-        txtDataDeNascimento.setText(formata.format(enfermeiro.getDataNascimento()));
+        txtDataDeNascimento.setText(enfermeiro.getDataNascimento());
         txtTelefone.setText(String.valueOf(enfermeiro.getContato().getTelefone())); 
         txtCelular.setText(String.valueOf(enfermeiro.getContato().getCelular()));
         txtEmail.setText(enfermeiro.getContato().getEmail());
@@ -141,19 +139,16 @@ public class EditEnfermeiroController {
     }
 
     @FXML
-    public void saveEnfermeiroEdit() throws ParseException {
+    public void saveEnfermeiroEdit() {
         try {
 
         enfermeiro.setSetor(txtSetor.getText());
         enfermeiro.setChSemanal(Integer.parseInt(txtChSemanal.getText()));
-        enfermeiro.setNomePessoal(txtNome.getText()); 
-        SimpleDateFormat formata = new SimpleDateFormat("dd/MM/yyyy");  
-        enfermeiro.setDataNascimento(formata.parse(txtDataDeNascimento.getText()));
+        enfermeiro.setNomePessoal(txtNome.getText());   
+        enfermeiro.setDataNascimento(txtDataDeNascimento.getText());
         enfermeiro.setTelefone(Long.valueOf(txtTelefone.getText()));
         enfermeiro.setCelular(Long.valueOf(txtCelular.getText()));
         enfermeiro.setEmail(txtEmail.getText());
-        }catch(ParseException e ) {
-            JOptionPane.showMessageDialog(null, "o formato da data deve ser ex: 12/12/2002");
         }catch(NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "o número do CRM ultrapassou o limite de caracter");
         }catch(Exception e) {
