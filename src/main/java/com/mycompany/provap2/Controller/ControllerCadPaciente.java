@@ -12,16 +12,20 @@ import com.mycompany.provap2.backend.MenuBack;
 import com.mycompany.provap2.backend.Paciente;
 import com.mycompany.provap2.backend.Responsavel;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.function.UnaryOperator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import javax.swing.JOptionPane;
@@ -139,7 +143,18 @@ public class ControllerCadPaciente {
         }
         
         
-        txtDataDeCadastro.setText(dataCadastro);       
+        txtDataDeCadastro.setText(dataCadastro);     
+        
+        // Configurar máscara para o campo de data
+        UnaryOperator<TextFormatter.Change> dateFilter = change -> {
+            String newText = change.getControlNewText();
+            if (newText.matches("\\d{0,2}/?\\d{0,2}/?\\d{0,4}")) {
+                return change;
+            }
+            return null;
+        };
+        TextFormatter<String> dateFormatter = new TextFormatter<>(dateFilter);
+        txtDataDeNascimento.setTextFormatter(dateFormatter);
     }
 
     
@@ -157,12 +172,19 @@ public class ControllerCadPaciente {
            String nome = txtNome.getText();
            
            String dataNascimentoD = txtDataDeNascimento.getText();
+           
+           if (!dataNascimentoD.matches("\\d{2}/\\d{2}/\\d{4}")) {
+                JOptionPane.showMessageDialog(null, "Data de nascimento inválida. Use o formato dd/MM/yyyy.");
+                return;
+            }
             
            String telefone = txtTelefone.getText();
            long telefoneL = Long.parseLong(telefone);
            String celular = txtCelular.getText();
            long celularL = Long.parseLong(celular);
            String email = txtEmail.getText();
+           
+           
            
            Genero generoSelecionado = txtGenero.getValue();
            
@@ -198,6 +220,11 @@ public class ControllerCadPaciente {
             Responsavel responsavel = new Responsavel(nomeResponsavel, contatoResponsavel);
             
             var enderecoSelecionado = txtEndereco.getValue();
+            
+            if(enderecoSelecionado == null) {
+              JOptionPane.showMessageDialog(null, "Cadastre um endereço antes de salvar um paciente");
+                return;  
+            }
             
             DadoPessoal dado = new DadoPessoal(nome,dataNascimentoD,enderecoSelecionado,
             contatoPaciente, opGenero);
