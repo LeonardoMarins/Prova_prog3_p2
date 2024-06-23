@@ -6,6 +6,8 @@ package com.mycompany.provap2.backend;
 
 import com.mycompany.provap2.backend.DadoPessoal;
 import com.mycompany.provap2.backend.ConsultaMedica;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -14,6 +16,7 @@ import java.util.UUID;
  *
  * @author marin
  */
+@XmlRootElement
 public class Paciente extends DadoPessoal {
     private UUID idPaciente;
     private int idade;
@@ -33,10 +36,15 @@ public class Paciente extends DadoPessoal {
         this.responsavel = responsavel;
         this.idPaciente = UUID.randomUUID();
     }
+    
+    public Paciente() {
+        
+    }
 
     /**
      * @return the idPaciente
      */
+    @XmlElement
     public UUID getIdPaciente() {
          return idPaciente;
     }
@@ -51,6 +59,7 @@ public class Paciente extends DadoPessoal {
     /**
      * @return the idade
      */
+    @XmlElement
     public int getIdade() {
         return idade;
     }
@@ -65,6 +74,7 @@ public class Paciente extends DadoPessoal {
     /**
      * @return the dataCadastro
      */
+    @XmlElement
     public String getDataCadastro() {
         return dataCadastro;
     }
@@ -79,6 +89,7 @@ public class Paciente extends DadoPessoal {
     /**
      * @return the obsGeral
      */
+    @XmlElement
     public String getObsGeral() {
         return obsGeral;
     }
@@ -94,6 +105,7 @@ public class Paciente extends DadoPessoal {
         this.contato = contato;
     }
     
+    @XmlElement
     public String getResponsavelNome() {
         return responsavel.getNomeResponsavel();
     }
@@ -102,8 +114,13 @@ public class Paciente extends DadoPessoal {
         this.responsavel.setNomeResponsavel(nome);
     }
     
+    @XmlElement
     public Responsavel getResponsavel() {
         return responsavel;
+    }
+    
+    public void setResponsavel(Responsavel responsavel) {
+        this.responsavel = responsavel;
     }
     
     public void setTelefoneResponsavel(Long telefone) {

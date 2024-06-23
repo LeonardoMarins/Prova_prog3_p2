@@ -29,6 +29,10 @@ public class DadoPessoal {
             throw new IllegalArgumentException("O nome do paciente não pode estar vazio");
         }
     }
+    
+    public DadoPessoal() {
+        
+    }
 
     /**
      * @return the nomePessoal

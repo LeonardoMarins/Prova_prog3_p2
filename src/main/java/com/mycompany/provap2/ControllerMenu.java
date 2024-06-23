@@ -204,7 +204,10 @@ public class ControllerMenu {
     @FXML
     public void exportarXML() {
         try {
-            MenuBack.exportarParaXML("consultas.xml");
+            MenuBack.exportToXMLConsulta("consultas.xml");
+            MenuBack.exportToXMLMedico("pacientes.xml");
+            MenuBack.exportToXMLPaciente("enfermeiros.xml");
+            MenuBack.exportToXMLEnfermeiro("medicos.xml");
             javax.swing.JOptionPane.showMessageDialog(null, "Exportado para XML com sucesso");
         } catch (JAXBException e) {
             e.printStackTrace();
@@ -215,7 +218,10 @@ public class ControllerMenu {
     @FXML
     public void importarXML() {
         try {
-            MenuBack.importarDeXML("consultas.xml");
+            MenuBack.importFromXMLConsulta("consultas.xml");
+            MenuBack.importFromXMLPaciente("pacientes.xml");
+            MenuBack.importFromXMLEnfermeiro("enfermeiros.xml");
+            MenuBack.importFromXMLMedico("medicos.xml");
             javax.swing.JOptionPane.showMessageDialog(null, "Importado de XML com sucesso");
         } catch (JAXBException e) {
             e.printStackTrace();

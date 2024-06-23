@@ -21,6 +21,10 @@ public class AtendenteHospitalar extends DadoPessoal {
         
     }
     
+    public AtendenteHospitalar() {
+        
+    }
+    
      /**
      * @return the setor
      */

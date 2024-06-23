@@ -1,4 +1,5 @@
 com\mycompany\provap2\DataPersistenceJSON.class
+com\mycompany\provap2\DataPersistenceXML$MedicosWrapper.class
 com\mycompany\provap2\EditController\EditEnfermeiroController.class
 com\mycompany\provap2\EditController\EditMedicoController$2.class
 com\mycompany\provap2\Controller\ControllerCadPaciente$1.class
@@ -41,6 +42,7 @@ com\mycompany\provap2\ListController\ControllerListEnfermeiro$3$1.class
 com\mycompany\provap2\ListController\ControllerListPaciente$4$1.class
 com\mycompany\provap2\ListController\ControllerListPaciente$3.class
 com\mycompany\provap2\DataPersistenceXML$ConsultasWrapper.class
+com\mycompany\provap2\DataPersistenceXML$PacientesWrapper.class
 com\mycompany\provap2\EditController\EditPacienteController$2.class
 com\mycompany\provap2\Controller\ControllerCadMedico.class
 com\mycompany\provap2\ListController\ControllerListConsulta$2$1.class
@@ -58,6 +60,7 @@ com\mycompany\provap2\Controller\ControllerCadEnfermeiro.class
 com\mycompany\provap2\ListController\ControllerListEnfermeiro.class
 com\mycompany\provap2\EditController\EditMedicoController.class
 com\mycompany\provap2\ListController\ControllerListMedico$3.class
+com\mycompany\provap2\DataPersistenceXML$EnfermeirosWrapper.class
 com\mycompany\provap2\EditController\EditConsultaController$1.class
 com\mycompany\provap2\DataPersistenceXML.class
 com\mycompany\provap2\backend\MenuBack.class

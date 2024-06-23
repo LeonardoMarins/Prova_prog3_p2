@@ -6,16 +6,18 @@ package com.mycompany.provap2.backend;
 
 import com.mycompany.provap2.backend.DadoPessoal;
 import com.mycompany.provap2.backend.AtendenteHospitalar;
-import java.util.Date;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import java.util.UUID;
 
 /**
  *
  * @author marin
  */
+@XmlRootElement
 public class Medico extends AtendenteHospitalar {
 
-   private UUID idMedico;
+   protected UUID idMedico;
    protected int numeroCRM;
    protected String areasEspecialidade;
    protected boolean cirurgiao;
@@ -35,16 +37,23 @@ public class Medico extends AtendenteHospitalar {
         this.idMedico = UUID.randomUUID();
    }
    
+   public Medico() {
+       
+   }
+   
    /**
      * @return the idMedico
      */
+    @XmlElement
     public UUID getIdMedico() {
         return idMedico;
     }
 
+
     /**
      * @return the numeroCRM
      */
+    @XmlElement
     public int getNumeroCRM() {
         return numeroCRM;
     }
@@ -59,6 +68,7 @@ public class Medico extends AtendenteHospitalar {
     /**
      * @return the areasEspecialidade
      */
+    @XmlElement
     public String getAreasEspecialidade() {
         return areasEspecialidade;
     }
@@ -73,6 +83,7 @@ public class Medico extends AtendenteHospitalar {
     /**
      * @return the cirurgiao
      */
+    @XmlElement
     public boolean isCirurgiao() {
         return cirurgiao;
     }
@@ -87,6 +98,7 @@ public class Medico extends AtendenteHospitalar {
     /**
      * @return the atendente
      */
+    @XmlElement
     public AtendenteHospitalar getAtendente() {
         return atendente;
     }
@@ -112,6 +124,13 @@ public class Medico extends AtendenteHospitalar {
     
     public void setEmail(String email) {
         this.contato.setEmail(email);
+    }
+
+    /**
+     * @param idMedico the idMedico to set
+     */
+    public void setIdMedico(UUID idMedico) {
+        this.idMedico = idMedico;
     }
     
 }

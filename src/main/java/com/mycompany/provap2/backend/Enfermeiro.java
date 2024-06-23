@@ -6,12 +6,15 @@ package com.mycompany.provap2.backend;
 
 import com.mycompany.provap2.backend.DadoPessoal;
 import com.mycompany.provap2.backend.AtendenteHospitalar;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import java.util.UUID;
 
 /**
  *
  * @author marin
  */
+@XmlRootElement
 public class Enfermeiro extends AtendenteHospitalar {
     protected UUID idEnfermeiro;
     protected boolean treinadoOpRX;
@@ -28,9 +31,14 @@ public class Enfermeiro extends AtendenteHospitalar {
         this.idEnfermeiro = UUID.randomUUID();
     }
     
+    public Enfermeiro() {
+        
+    }
+    
      /**
      * @return the idEnfermeiro
      */
+    @XmlElement
     public UUID getIdEnfermeiro() {
         return idEnfermeiro;
     }
@@ -45,6 +53,7 @@ public class Enfermeiro extends AtendenteHospitalar {
     /**
      * @return the treinadoOpRX
      */
+    @XmlElement
     public boolean isTreinadoOpRX() {
         return treinadoOpRX;
     }
@@ -59,6 +68,7 @@ public class Enfermeiro extends AtendenteHospitalar {
     /**
      * @return the atendete
      */
+    @XmlElement
     public AtendenteHospitalar getAtendete() {
         return atendete;
     }

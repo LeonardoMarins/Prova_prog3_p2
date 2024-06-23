@@ -85,13 +85,39 @@ public class MenuBack {
         listaDeEnfermeiros = (ArrayList<Enfermeiro>) DataPersistenceJSON.importFromJSONEnfermeiro(filePath);
     }
 
-    public static void exportarParaXML(String filePath) throws JAXBException {
-        DataPersistenceXML.exportToXML(listaDeConsultaMedica, filePath);
+    public static void exportToXMLConsulta(String filePath) throws JAXBException {
+        DataPersistenceXML.exportToXMLConsulta(listaDeConsultaMedica, filePath);
     }
-
-    public static void importarDeXML(String filePath) throws JAXBException {
-        listaDeConsultaMedica = (ArrayList<ConsultaMedica>) DataPersistenceXML.importFromXML(filePath);
+    
+    public static void exportToXMLMedico(String filePath) throws JAXBException {
+        DataPersistenceXML.exportToXMLMedico(listaDeMedicos, filePath);
     }
+    
+    public static void exportToXMLEnfermeiro(String filePath) throws JAXBException {
+        DataPersistenceXML.exportToXMLEnfermeiro(listaDeEnfermeiros, filePath);
+    }
+    
+    public static void exportToXMLPaciente(String filePath) throws JAXBException {
+        DataPersistenceXML.exportToXMLPaciente(listaDePaciente, filePath);
+    }
+    
+    public static void importFromXMLConsulta(String filePath) throws JAXBException {
+        listaDeConsultaMedica = (ArrayList<ConsultaMedica>) DataPersistenceXML.importFromXMLConsulta(filePath);
+    }
+    
+    public static void importFromXMLMedico(String filePath) throws JAXBException {
+        listaDeMedicos = (ArrayList<Medico>) DataPersistenceXML.importFromXMLMedico(filePath);
+    }
+    
+    public static void importFromXMLEnfermeiro(String filePath) throws JAXBException {
+        listaDeEnfermeiros = (ArrayList<Enfermeiro>) DataPersistenceXML.importFromXMLEnfermeiro(filePath);
+    }
+    
+    public static void importFromXMLPaciente(String filePath) throws JAXBException {
+        listaDePaciente = (ArrayList<Paciente>) DataPersistenceXML.importFromXMLPaciente(filePath);
+    }
+     
+     
     
     
 }
