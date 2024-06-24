@@ -16,7 +16,6 @@ com\mycompany\provap2\Controller\ControllerCadMedico$1.class
 com\mycompany\provap2\ListController\ControllerListMedico$3$1.class
 com\mycompany\provap2\ListController\ControllerListConsulta$2.class
 com\mycompany\provap2\ListController\ControllerListConsulta.class
-com\mycompany\provap2\Model\Conexao.class
 com\mycompany\provap2\ListController\ControllerListPaciente$4.class
 com\mycompany\provap2\ListController\ControllerListPaciente$5$1.class
 com\mycompany\provap2\Controller\ControllerCadPaciente$2.class

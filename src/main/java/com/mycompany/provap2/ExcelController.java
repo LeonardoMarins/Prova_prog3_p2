@@ -4,10 +4,14 @@
  */
 package com.mycompany.provap2;
 
+import com.mycompany.provap2.backend.AtendenteHospitalar;
+import com.mycompany.provap2.backend.ConsultaMedica;
 import com.mycompany.provap2.backend.ContatoTelEmail;
 import com.mycompany.provap2.backend.DadoPessoal;
 import com.mycompany.provap2.backend.Endereco;
+import com.mycompany.provap2.backend.Enfermeiro;
 import com.mycompany.provap2.backend.Genero;
+import com.mycompany.provap2.backend.Medico;
 import com.mycompany.provap2.backend.MenuBack;
 import com.mycompany.provap2.backend.Paciente;
 import com.mycompany.provap2.backend.Responsavel;
@@ -324,8 +328,7 @@ public class ExcelController {
         }
     }
 }
-
-   public void importarExcel() throws IOException {
+      public void importarExcel() throws IOException {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setDialogTitle("Selecione o arquivo Excel");
         fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
@@ -337,78 +340,168 @@ public class ExcelController {
             try (FileInputStream fis = new FileInputStream(filePath);
                  Workbook workbook = new XSSFWorkbook(fis)) {
 
-                Sheet sheet = workbook.getSheet("paciente");
-                if (sheet != null) {
-                    // Comece a partir da linha 1 para pular o cabeçalho
-                for (int i = 1; i <= sheet.getLastRowNum(); i++) {
-                    Row row = sheet.getRow(i);
-                    if (row != null) {
-                        try {
-                            // Nome Pessoal
-                            String nomePessoal = getStringCellValue(row.getCell(0));
+                importarPacientes(workbook);
+                importarMedicos(workbook);
+                importarEnfermeiros(workbook);
+                importarConsultas(workbook);
 
-                            // Data de Nascimento
-                            String dataNascimento = getStringCellValue(row.getCell(2));
-
-                            // Idade
-                            int idadeI = getIntCellValue(row.getCell(4));
-
-                            // Número
-                            int numeroI = getIntCellValue(row.getCell(14));
-
-                            // Celular
-                            Long celularI = getLongCellValue(row.getCell(24));
-                            celularI = celularI != null ? celularI : 123L; // Valor padrão
-
-                            // Telefone
-                            Long telefoneI = getLongCellValue(row.getCell(26));
-                            telefoneI = telefoneI != null ? telefoneI : 123L; // Valor padrão
-
-                            // Rua
-                            String ruaI = getStringCellValue(row.getCell(12));
-
-                            // Bairro
-                            String bairroI = getStringCellValue(row.getCell(22));
-
-                            // Cidade
-                            String cidadeI = getStringCellValue(row.getCell(18));
-
-                            // Estado
-                            String estadoI = getStringCellValue(row.getCell(16));
-
-                            // CEP
-                            Integer cepI = getIntCellValue(row.getCell(20));
-
-                            // Email
-                            String emailI = getStringCellValue(row.getCell(28));
-
-                            // Nome Responsável
-                            String nomeResponsavelI = getStringCellValue(row.getCell(10));
-
-                            // Demais seções de código para atributos do paciente
-
-                            Endereco end = new Endereco(ruaI, numeroI, bairroI, cidadeI, estadoI, cepI);
-                            ContatoTelEmail cont = new ContatoTelEmail(telefoneI, celularI, emailI);
-
-                            Date dataAtual = new Date();
-                            String dataCadastro = dataAtual.toGMTString();
-
-                            DadoPessoal dado = new DadoPessoal(nomePessoal, dataNascimento, end, cont, Genero.M);
-                            Responsavel respo = new Responsavel(nomeResponsavelI, cont);
-
-                            Paciente paciente = new Paciente(dado, idadeI, dataCadastro, "", respo);
-
-                            MenuBack.listaDePaciente.add(paciente);
-                        } catch (NumberFormatException e) {
-                            e.printStackTrace(); // Você pode tratar o erro de forma adequada aqui
-                        }
-                    }
-                }
-            } else {
-                JOptionPane.showMessageDialog(null, "A aba 'paciente' não foi encontrada no arquivo Excel.", "Erro", JOptionPane.ERROR_MESSAGE);
+            } catch (IOException e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Erro ao abrir o arquivo Excel.", "Erro", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
+
+   private void importarPacientes(Workbook workbook) {
+        Sheet sheet = workbook.getSheet("paciente");
+        if (sheet != null) {
+            for (int i = 1; i <= sheet.getLastRowNum(); i++) {
+                Row row = sheet.getRow(i);
+                if (row != null) {
+                    try {
+                        String nomePessoal = getStringCellValue(row.getCell(0));
+                        String dataNascimento = getStringCellValue(row.getCell(2));
+                        int idadeI = getIntCellValue(row.getCell(4));
+                        int numeroI = getIntCellValue(row.getCell(14));
+                        Long celularI = getLongCellValue(row.getCell(24));
+                        celularI = celularI != null ? celularI : 123L;
+                        Long telefoneI = getLongCellValue(row.getCell(26));
+                        telefoneI = telefoneI != null ? telefoneI : 123L;
+                        String ruaI = getStringCellValue(row.getCell(12));
+                        String bairroI = getStringCellValue(row.getCell(22));
+                        String cidadeI = getStringCellValue(row.getCell(18));
+                        String estadoI = getStringCellValue(row.getCell(16));
+                        Integer cepI = getIntCellValue(row.getCell(20));
+                        String emailI = getStringCellValue(row.getCell(28));
+                        String nomeResponsavelI = getStringCellValue(row.getCell(10));
+
+                        Endereco end = new Endereco(ruaI, numeroI, bairroI, cidadeI, estadoI, cepI);
+                        ContatoTelEmail cont = new ContatoTelEmail(telefoneI, celularI, emailI);
+
+                        Date dataAtual = new Date();
+                        String dataCadastro = dataAtual.toGMTString();
+
+                        DadoPessoal dado = new DadoPessoal(nomePessoal, dataNascimento, end, cont, Genero.M);
+                        Responsavel respo = new Responsavel(nomeResponsavelI, cont);
+
+                        Paciente paciente = new Paciente(dado, idadeI, dataCadastro, "", respo);
+
+                        MenuBack.listaDePaciente.add(paciente);
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "A aba 'paciente' não foi encontrada no arquivo Excel.", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    private void importarMedicos(Workbook workbook) {
+        Sheet sheet = workbook.getSheet("Medico");
+        if (sheet != null) {
+            for (int i = 1; i <= sheet.getLastRowNum(); i++) {
+                Row row = sheet.getRow(i);
+                if (row != null) {
+                    try {
+                        int numeroCRM = getIntCellValue(row.getCell(0));
+                        String areaEsp = getStringCellValue(row.getCell(1));
+                        boolean cirurgiao = getBooleanCellValue(row.getCell(4));
+                        String setor = getStringCellValue(row.getCell(6));
+                        int chSemanal = getIntCellValue(row.getCell(8));
+                        String nome = getStringCellValue(row.getCell(10));
+                        String dataNascimento = getStringCellValue(row.getCell(12));
+                        String ruaI = getStringCellValue(row.getCell(14));
+                        Long celularI = getLongCellValue(row.getCell(16));
+                        celularI = celularI != null ? celularI : 123L;
+                        Genero genero = Genero.valueOf(getStringCellValue(row.getCell(18)));
+
+                        Endereco end = new Endereco(ruaI, 0, "", "", "", 0);  // Adapte conforme necessário
+                        ContatoTelEmail cont = new ContatoTelEmail(123L, celularI, "");  // Adapte conforme necessário
+                        DadoPessoal dado = new DadoPessoal(nome, dataNascimento, end, cont, genero);
+                        AtendenteHospitalar atendente = new AtendenteHospitalar(setor, chSemanal, dado);
+
+                        Medico medico = new Medico(dado, numeroCRM, areaEsp, cirurgiao, atendente);
+
+                        MenuBack.listaDeMedicos.add(medico);
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "A aba 'Medico' não foi encontrada no arquivo Excel.", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    private void importarEnfermeiros(Workbook workbook) {
+        Sheet sheet = workbook.getSheet("Enfermeiro");
+        if (sheet != null) {
+            for (int i = 1; i <= sheet.getLastRowNum(); i++) {
+                Row row = sheet.getRow(i);
+                if (row != null) {
+                    try {
+                        String nome = getStringCellValue(row.getCell(0));
+                        String dataNascimento = getStringCellValue(row.getCell(2));
+                        Genero genero = Genero.valueOf(getStringCellValue(row.getCell(4)));
+                        String setor = getStringCellValue(row.getCell(6));
+                        int chSemanal = getIntCellValue(row.getCell(8));
+                        boolean treinadoOpRX = getBooleanCellValue(row.getCell(10));
+                        String ruaI = getStringCellValue(row.getCell(12));
+                        int numeroI = getIntCellValue(row.getCell(14));
+                        String estadoI = getStringCellValue(row.getCell(16));
+                        String cidadeI = getStringCellValue(row.getCell(18));
+                        int cepI = getIntCellValue(row.getCell(20));
+                        String bairroI = getStringCellValue(row.getCell(22));
+                        Long celularI = getLongCellValue(row.getCell(24));
+                        celularI = celularI != null ? celularI : 123L;
+                        Long telefoneI = getLongCellValue(row.getCell(26));
+                        telefoneI = telefoneI != null ? telefoneI : 123L;
+                        String emailI = getStringCellValue(row.getCell(28));
+
+                        Endereco end = new Endereco(ruaI, numeroI, bairroI, cidadeI, estadoI, cepI);
+                        ContatoTelEmail cont = new ContatoTelEmail(telefoneI, celularI, emailI);
+                        DadoPessoal dado = new DadoPessoal(nome, dataNascimento, end, cont, genero);
+                        AtendenteHospitalar atendente = new AtendenteHospitalar(setor, chSemanal, dado);
+
+                        Enfermeiro enfermeiro = new Enfermeiro(treinadoOpRX, atendente, dado);
+
+                        MenuBack.listaDeEnfermeiros.add(enfermeiro);
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "A aba 'Enfermeiro' não foi encontrada no arquivo Excel.", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+     private void importarConsultas(Workbook workbook) {
+        Sheet sheet = workbook.getSheet("Consulta Medica");
+        if (sheet != null) {
+            for (int i = 1; i <= sheet.getLastRowNum(); i++) {
+                Row row = sheet.getRow(i);
+                if (row != null) {
+                    try {
+                        String idPaciente = getStringCellValue(row.getCell(0));
+                        String idMedico = getStringCellValue(row.getCell(2));
+                        String exameQueixa = getStringCellValue(row.getCell(4));
+                        String diagnostico = getStringCellValue(row.getCell(6));
+                        String prescricao = getStringCellValue(row.getCell(8));
+                        boolean indicacaoCirurgica = getBooleanCellValue(row.getCell(10));
+                        String observacao = getStringCellValue(row.getCell(12));
+
+                        // Crie e adicione o objeto ConsultaMedica à lista
+                        //ConsultaMedica consulta = new ConsultaMedica(idPaciente, idMedico, exameQueixa, diagnostico, prescricao, indicacaoCirurgica, observacao);
+                        //MenuBack.listaDeConsultaMedica.add(consulta);
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "A aba 'Consulta Medica' não foi encontrada no arquivo Excel.", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     private String getStringCellValue(Cell cell) {
@@ -448,6 +541,10 @@ public class ExcelController {
             return (long) cell.getNumericCellValue();
         }
         return null;
+    }
+    
+    private boolean getBooleanCellValue(Cell cell) {
+        return cell != null && cell.getBooleanCellValue();
     }
 }     
 
