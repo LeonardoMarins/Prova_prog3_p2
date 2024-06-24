@@ -11,11 +11,9 @@ import com.mycompany.provap2.backend.Endereco;
 import com.mycompany.provap2.backend.Genero;
 import com.mycompany.provap2.backend.Medico;
 import com.mycompany.provap2.backend.MenuBack;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+import java.util.function.UnaryOperator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -23,6 +21,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import javax.swing.JOptionPane;
@@ -131,6 +130,16 @@ public class ControllerCadMedico {
         if (!listEndereco.isEmpty()) {
             txtEndereco.setValue(listEndereco.get(0));
         }
+        
+         UnaryOperator<TextFormatter.Change> dateFilter = change -> {
+            String newText = change.getControlNewText();
+            if (newText.matches("\\d{0,2}/?\\d{0,2}/?\\d{0,4}")) {
+                return change;
+            }
+            return null;
+        };
+        TextFormatter<String> dateFormatter = new TextFormatter<>(dateFilter);
+        txtDataDeNascimento.setTextFormatter(dateFormatter);
     }
 
     
@@ -157,6 +166,11 @@ public class ControllerCadMedico {
        String nome = txtNome.getText();
 
        String dataNascimentoD = txtDataDeNascimento.getText();
+       
+       if (!dataNascimentoD.matches("\\d{2}/\\d{2}/\\d{4}")) {
+            JOptionPane.showMessageDialog(null, "Data de nascimento inválida. Use o formato dd/MM/yyyy.");
+            return;
+        }
        
        Endereco enderecoSelecionado = txtEndereco.getValue();
             

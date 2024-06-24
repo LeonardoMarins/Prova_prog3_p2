@@ -162,7 +162,7 @@ public class ControllerMenu {
                 MenuBack.exportToJSONMedico("medicos.json");
                 javax.swing.JOptionPane.showMessageDialog(null, "Exportado para XML com sucesso");               
             }else {
-                javax.swing.JOptionPane.showMessageDialog(null, "Não tem dados de consulta, enfermeiros, medicos e pacientes para serem exportados.");
+                javax.swing.JOptionPane.showMessageDialog(null, "Não tem dados de consulta, enfermeiros, medicos ou pacientes para serem exportados.");
             }
             
         } catch (IOException e) {
@@ -196,7 +196,7 @@ public class ControllerMenu {
                 MenuBack.exportToXMLEnfermeiro("enfermeiros.xml");
                 javax.swing.JOptionPane.showMessageDialog(null, "Exportado para XML com sucesso");               
             }else {
-                javax.swing.JOptionPane.showMessageDialog(null, "Não tem dados de consulta, enfermeiros, medicos e pacientes para serem exportados.");
+                javax.swing.JOptionPane.showMessageDialog(null, "Não tem dados de consulta, enfermeiros, medicos ou pacientes para serem exportados.");
             }
         } catch (JAXBException e) {
             e.printStackTrace();
