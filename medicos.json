@@ -1,0 +1,1 @@
+[{"nomePessoal":"Medico A","dataNascimento":"20/08/2000","endereco":{"rua":"Rua A","numero":0,"bairro":"","cidade":"","estado":"","cep":0},"contato":{"telefone":123,"celular":12345678,"email":""},"genero":"M","setor":"setor A","chSemanal":12345,"idMedico":"53216b59-e072-453d-9032-42529c4ca2b6","numeroCRM":1234567,"areasEspecialidade":"teste","cirurgiao":true,"atendente":null}]

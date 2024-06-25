@@ -158,9 +158,9 @@ public class ControllerMenu {
                 MenuBack.listaDeMedicos.size() >= 1 || MenuBack.listaDePaciente.size() >= 1) {
                 MenuBack.exportToJSONConsulta("consultas.json");
                 MenuBack.exportToJSONPaciente("pacientes.json");
-                MenuBack.exportToJSONEnfermeiro("enfermeiros.json");
+                MenuBack.exportToJSONEnfermeiro("enfermeiros.json"); 
                 MenuBack.exportToJSONMedico("medicos.json");
-                javax.swing.JOptionPane.showMessageDialog(null, "Exportado para XML com sucesso");               
+                javax.swing.JOptionPane.showMessageDialog(null, "Exportado para JSON com sucesso");               
             }else {
                 javax.swing.JOptionPane.showMessageDialog(null, "Não tem dados de consulta, enfermeiros, medicos ou pacientes para serem exportados.");
             }

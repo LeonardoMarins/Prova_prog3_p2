@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<medicosWrapper>
+    <medicos>
+        <contato>
+            <celular>12345678</celular>
+            <email></email>
+            <telefone>123</telefone>
+        </contato>
+        <dataNascimento>20/08/2000</dataNascimento>
+        <endereco>
+            <bairro></bairro>
+            <cep>0</cep>
+            <cidade></cidade>
+            <estado></estado>
+            <numero>0</numero>
+            <rua>Rua A</rua>
+        </endereco>
+        <genero>M</genero>
+        <nomePessoal>Medico A</nomePessoal>
+        <chSemanal>12345</chSemanal>
+        <setor>setor A</setor>
+        <areasEspecialidade>teste</areasEspecialidade>
+        <cirurgiao>true</cirurgiao>
+        <idMedico>53216b59-e072-453d-9032-42529c4ca2b6</idMedico>
+        <numeroCRM>1234567</numeroCRM>
+    </medicos>
+</medicosWrapper>

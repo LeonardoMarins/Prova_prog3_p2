@@ -13,7 +13,7 @@ module com.mycompany.provap2 {
     opens com.mycompany.provap2.EditController to javafx.fxml;
     opens com.mycompany.provap2.ListController to javafx.fxml;
     opens com.mycompany.provap2.backend to javafx.base;
-    opens com.mycompany.provap2 to jakarta.xml.bind;
+    opens com.mycompany.provap2.Persistencia to jakarta.xml.bind;
     
     exports com.mycompany.provap2;
     exports com.mycompany.provap2.backend;
