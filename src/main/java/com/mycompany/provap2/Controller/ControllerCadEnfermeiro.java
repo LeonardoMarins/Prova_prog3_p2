@@ -231,5 +231,18 @@ public class ControllerCadEnfermeiro {
        }
     }
     
+    @FXML
+     public void clear() {
+        
+       txtSetor.setText("");
+       txtChSemanal.setText("");
+       txtNome.setText("");
+       
+       txtDataDeNascimento.setText("");
+            
+       txtTelefone.setText("");
+       txtCelular.setText("");
+       txtEmail.setText("");
+    }
 }
 

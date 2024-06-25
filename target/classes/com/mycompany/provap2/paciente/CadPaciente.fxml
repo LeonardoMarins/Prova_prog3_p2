@@ -13,7 +13,7 @@
       <Label layoutX="14.0" layoutY="54.0" text="NOME COMPLETO:" />
       <TextField fx:id="txtNome" layoutX="123.0" layoutY="50.0" prefHeight="25.0" prefWidth="273.0" />
       <Label layoutX="14.0" layoutY="84.0" text="DATA NASCIMENTO:" />
-      <TextField fx:id="txtDataDeNascimento" promptText="Data de Nascimento (dd/MM/yyyy)" layoutX="138.0" layoutY="80.0" prefHeight="25.0" prefWidth="258.0" />
+      <TextField fx:id="txtDataDeNascimento" layoutX="138.0" layoutY="80.0" prefHeight="25.0" prefWidth="258.0" promptText="Data de Nascimento (dd/MM/yyyy)" />
       <Label layoutX="14.0" layoutY="115.0" text="ENDEREÇO:" />
       <ComboBox fx:id="txtEndereco" layoutX="88.0" layoutY="111.0" prefHeight="25.0" prefWidth="306.0" />
       <Label layoutX="14.0" layoutY="152.0" text="GENERO:" />
@@ -31,7 +31,7 @@
       <Label layoutX="18.0" layoutY="409.0" text="EMAIL:" />
       <TextField fx:id="txtEmail" layoutX="88.0" layoutY="405.0" prefHeight="25.0" prefWidth="306.0" />
       <Button fx:id="salvarPaciente" layoutX="268.0" layoutY="636.0" mnemonicParsing="false" onAction="#savePaciente" prefHeight="49.0" prefWidth="111.0" text="SALVAR" />
-      <Button layoutX="21.0" layoutY="636.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="111.0" text="LIMPAR" />
+      <Button layoutX="21.0" layoutY="636.0" mnemonicParsing="false" onAction="#clear" prefHeight="49.0" prefWidth="111.0" text="LIMPAR" />
       <Label layoutX="18.0" layoutY="482.0" text="NOME DO RESPONSAVEL:" />
       <TextField fx:id="txtNomeResponsavel" layoutX="173.0" layoutY="478.0" prefHeight="25.0" prefWidth="224.0" />
       <Label layoutX="18.0" layoutY="520.0" text="TELEFONE DO RESPONSAVEL:" />

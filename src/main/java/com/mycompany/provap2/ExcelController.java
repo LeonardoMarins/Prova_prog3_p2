@@ -5,6 +5,7 @@
 package com.mycompany.provap2;
 
 import com.mycompany.provap2.backend.AtendenteHospitalar;
+import com.mycompany.provap2.backend.ConsultaMedica;
 import com.mycompany.provap2.backend.ContatoTelEmail;
 import com.mycompany.provap2.backend.DadoPessoal;
 import com.mycompany.provap2.backend.Endereco;

@@ -238,6 +238,28 @@ public class ControllerCadPaciente {
             ex.getMessage();
             JOptionPane.showMessageDialog(null, "o contatoTelEmail deve ser cadastrado antes "
                     + "para conseguir cadastrar um responsavel");
+        }catch(NumberFormatException ex) {
+            ex.getMessage();
+            JOptionPane.showMessageDialog(null, "os campos de números não podem contar letras");
         }
+    }
+    
+    @FXML
+     public void clear() {
+        
+       txtTelefoneResponsavel.setText("");
+       txtCelularResponsavel.setText("");
+       txtEmailDoResponsavel.setText("");
+       txtNomeResponsavel.setText("");
+            
+       txtIdade.setText("");
+       txtObsGeral.setText("");
+       txtNome.setText("");
+       
+       txtDataDeNascimento.setText("");
+            
+       txtTelefone.setText("");
+       txtCelular.setText("");
+       txtEmail.setText("");
     }
 }

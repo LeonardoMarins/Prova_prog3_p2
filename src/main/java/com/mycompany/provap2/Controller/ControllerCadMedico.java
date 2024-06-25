@@ -234,7 +234,8 @@ public class ControllerCadMedico {
         }
        }catch(NumberFormatException exs) {
            JOptionPane.showMessageDialog(null, "o numero de CRM e o chSemanal não podem ser vazios"
-                   + " para o cadastro do medico e não devem conter letras");
+                   + " para o cadastro do medico e não devem conter letras e os campos de números"
+                   + "não podem conter letras");
            exs.getMessage();
        }catch(IndexOutOfBoundsException ex) {
             JOptionPane.showMessageDialog(null, "o contatoTelEmail, endereço e responsavel devem ser cadastrado antes "
@@ -244,5 +245,22 @@ public class ControllerCadMedico {
        }catch(Exception ex) {
            ex.getMessage();
        }
+    }
+    
+    @FXML
+     public void clear() {
+        
+       txtCrm.setText("");
+       
+       txtAreaEspecifica.setText("");
+       txtSetor.setText("");
+       txtChSemanal.setText("");
+       txtNome.setText("");
+       
+       txtDataDeNascimento.setText("");
+            
+       txtTelefone.setText("");
+       txtCelular.setText("");
+       txtEmail.setText("");
     }
 }

@@ -58,9 +58,20 @@ public class ControllerCadEndereco {
      }catch(NumberFormatException exs) {
          javax.swing.JOptionPane.showMessageDialog(null, "o campo de cep e número não podem ser vazios");
      }catch(IllegalArgumentException exs) {
-         javax.swing.JOptionPane.showMessageDialog(null, "o campo de Rua não pode ser vazio");
+         javax.swing.JOptionPane.showMessageDialog(null, "o campo de Rua não pode ser vazio e não podem conter letras");
      }catch(Exception exs) {
          exs.getMessage();
      }
+    }
+    
+     @FXML
+     public void clear() {
+        
+        txtRua.setText("");
+        txtNumero.setText("");
+        txtBairro.setText("");
+        txtCidade.setText("");
+        txtEstado.setText("");
+        txtCep.setText("");
     }
 }

@@ -22,7 +22,7 @@
       <CheckBox fx:id="sim" layoutX="153.0" layoutY="229.0" mnemonicParsing="false" text="SIM" />
       <CheckBox fx:id="nao" layoutX="209.0" layoutY="229.0" mnemonicParsing="false" text="NÃO" />
       <Button fx:id="salvarConsulta" layoutX="253.0" layoutY="271.0" mnemonicParsing="false" onAction="#saveConsulta" prefHeight="44.0" prefWidth="96.0" text="SALVAR" />
-      <Button layoutX="27.0" layoutY="271.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="96.0" text="LIMPAR" />
+      <Button layoutX="27.0" layoutY="271.0" mnemonicParsing="false" onAction="#clear" prefHeight="44.0" prefWidth="96.0" text="LIMPAR" />
       <ComboBox fx:id="txtPaciente" layoutX="78.0" layoutY="52.0" prefHeight="25.0" prefWidth="276.0" />
       <ComboBox fx:id="txtMedico" layoutX="78.0" layoutY="93.0" prefHeight="25.0" prefWidth="276.0" />
    </children>

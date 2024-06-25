@@ -173,4 +173,13 @@ public class ControllerCadConsulta {
            exs.getMessage();
        }
     }
+    
+    @FXML
+    public void clear() {
+        
+        txtQueixa.setText("");
+        txtDiagnostico.setText("");
+        txtPrescricao.setText("");
+ 
+    }
 }
