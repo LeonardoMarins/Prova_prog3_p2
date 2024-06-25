@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.provap2;
+package com.mycompany.provap2.Persistencia;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mycompany.provap2.backend.ConsultaMedica;

@@ -4,8 +4,8 @@
  */
 package com.mycompany.provap2.backend;
 
-import com.mycompany.provap2.DataPersistenceJSON;
-import com.mycompany.provap2.DataPersistenceXML;
+import com.mycompany.provap2.Persistencia.DataPersistenceJSON;
+import com.mycompany.provap2.Persistencia.DataPersistenceXML;
 import jakarta.xml.bind.JAXBException;
 import java.io.IOException;
 import java.util.ArrayList;
