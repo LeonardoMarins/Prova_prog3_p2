@@ -9,6 +9,10 @@ Prova da matéria de programação 3 da faculdade Femass. A prova tinha como obj
 
 Obs.: Crie classes específicas com métodos de persistência de dados, separando-as para XML e JSON. Lembre-se, estruture "Packages" em seu projeto de forma a separar as classes desenvolvidas conforme seus tipos na aplicação (front-end, back-end, interface, persistência (EntityManager), etc.). 
 
+# Rodando a aplicação:
 
+**Principais alterações da N1 para N2 utilizando o JavaFX para as inaterfaces e exportando e importando dados em Xml e Json utilizando as bibliotecas Jackson e JAXB**.
+
+  
 
 
