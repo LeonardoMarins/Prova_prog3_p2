@@ -16,8 +16,10 @@ Obs.: Crie classes específicas com métodos de persistência de dados, separand
 **OBS: Vai conseguir exportar apenas se tiver algum dado em paciente, medico, enfermeiro ou consulta**.
 
 ![image](https://github.com/LeonardoMarins/Prova_prog3_p2/assets/109676300/c8c0d89c-50bb-46b5-9a8c-181acb9a3049)
+
   
 ![image](https://github.com/LeonardoMarins/Prova_prog3_p2/assets/109676300/ac686cb9-e095-4d36-985c-f61639801e49)
+
 
 ![image](https://github.com/LeonardoMarins/Prova_prog3_p2/assets/109676300/909e63ce-e09b-496c-ba3b-e8151f12187e)
 
